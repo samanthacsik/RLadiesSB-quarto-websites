@@ -1,0 +1,65 @@
+---
+title: "Creating your personal website using Quarto"
+subtitle: "R-Ladies Santa Barbara Meetup"
+author: 
+  - name: Sam Shanny-Csik
+    url: https://samanthacsik.github.io/
+    orcid: 0000-0002-5300-3075
+date: May 13, 2026
+format: 
+  html:
+    theme: RLadies-styles.scss
+    logo: "images/RLadies+.png"
+    toc: true
+    toc-location: left
+    toc-depth: 3
+    smooth-scroll: true
+---
+
+<br>
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-6}
+*This document is based on teaching material originally developed for the Bren School of Environmental Science & Management’s [Master of Environmental Data Science](https://bren.ucsb.edu/masters-programs/master-environmental-data-science/academics-meds){target="_blank"} (MEDS) program. Check out [Creating your personal website using Quarto](https://ucsb-meds.github.io/creating-quarto-websites/){target="_blank"}, [Customizing Quarto websites](https://ucsb-meds.github.io/customizing-quarto-websites/#/title-slide){target="_blank"}, and [Adding a blog to your existing Quarto website](https://samanthacsik.github.io/posts/2022-10-24-quarto-blogs/){target="_blank"} for additional information and examples.* 
+:::
+
+::: {.g-col-12 .g-col-md-6}
+```{r}
+#| eval: true
+#| echo: false
+#| fig-align: "center"
+#| out-width: "60%"
+knitr::include_graphics(here::here("images", "RLadies_hex.jpeg"))
+```
+
+```{r}
+#| eval: false
+#| echo: false
+#| fig-align: "center"
+#| out-width: "50%"
+knitr::include_graphics(here::here("images", "RLadies+.png"))
+```
+:::
+
+:::
+
+<br>
+
+{{< include /sections/0-setup.qmd >}}
+
+{{< include /sections/1-create-scaffolding.qmd >}}
+
+::: {.panel-tabset}
+## **{{< fa brands r-project title="R programming language icon" >}} RStudio**
+
+{{< include /sections/1a-RStudio.qmd >}}
+
+## **{{< fa plus title="plus symbol" >}} Positron**
+
+{{< include /sections/1b-Positron.qmd >}}
+
+## **{{< fa terminal title="terminal symbol, |>" >}} Command line**
+
+<!-- {{< include /sections/1c-command-line.qmd >}} -->
+:::

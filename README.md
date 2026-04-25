@@ -1,4 +1,4 @@
-# Creating your personal website using Quarto & GitHub Pages 
+# Creating your personal website using Quarto
 
 Samantha Shanny-Csik  
 R-Ladies Santa Barbara Meetup   

@@ -1,0 +1,54 @@
+/*-- scss:defaults --*/
+
+// see RLadies+ branding: https://guide.rladies.org/organization/tech/brand/
+
+// Import fonts
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+// fonts
+$font-family-sans-serif: 'Poppins', sans-serif;
+
+// colors
+$blue-violet: #881ef9;
+$dodger-blue: #146AF9;
+$brilliant-rose: #ff5b92;
+$bastille-black: #2f2f30;
+$lavendar-white: #ededf4;
+
+// quarto sass variables
+$body-color: $bastille-black; 
+$link-color: $dodger-blue;
+$code-color: $brilliant-rose;
+
+/*-- scss:rules --*/
+
+// header font & color
+h1, h2, h3, h4 {
+  color: $blue-violet;
+}
+
+.title {
+  color: $blue-violet; 
+}
+
+// line beneath h2
+h2 {
+  border-bottom: 3px solid $blue-violet;
+  padding-bottom: 0.5rem;
+}
+
+// Make title font larger
+.quarto-title-banner .quarto-title .title {
+    font-weight: 100;
+    font-size: xxx-large;
+}
+
+// center text (horizontally)
+.center-text{
+  text-align: center;
+}
+
+
+
+
+
