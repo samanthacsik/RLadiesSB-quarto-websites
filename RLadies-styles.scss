@@ -22,25 +22,30 @@ $code-color: $brilliant-rose;
 
 /*-- scss:rules --*/
 
-// header font & color
-h1, h2, h3, h4 {
-  color: $blue-violet;
-}
-
 .title {
   color: $blue-violet; 
+  font-family: $font-family-sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+h1, h2, h3, h4 {
+  color: $blue-violet;
+  font-family: $font-family-sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+p {
+  font-family: $font-family-sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 // line beneath h2
 h2 {
   border-bottom: 3px solid $blue-violet;
   padding-bottom: 0.5rem;
-}
-
-// Make title font larger
-.quarto-title-banner .quarto-title .title {
-    font-weight: 100;
-    font-size: xxx-large;
 }
 
 // center text (horizontally)

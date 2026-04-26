@@ -9,6 +9,7 @@ date: May 13, 2026
 format: 
   html:
     theme: RLadies-styles.scss
+    mainfont: "Poppins"
     logo: "images/RLadies+.png"
     toc: true
     toc-location: left
@@ -61,5 +62,7 @@ knitr::include_graphics(here::here("images", "RLadies+.png"))
 
 ## **{{< fa terminal title="terminal symbol, |>" >}} Command line**
 
-<!-- {{< include /sections/1c-command-line.qmd >}} -->
+{{< include /sections/1c-command-line.qmd >}}
 :::
+
+{{< include /sections/2-publish-with-github-pages.qmd >}}
