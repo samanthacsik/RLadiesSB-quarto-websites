@@ -10,7 +10,6 @@ format:
   html:
     theme: RLadies-styles.scss
     mainfont: "Poppins"
-    logo: "images/RLadies+.png"
     toc: true
     toc-location: left
     toc-depth: 3
@@ -22,7 +21,7 @@ format:
 ::: {.grid}
 
 ::: {.g-col-12 .g-col-md-6}
-*This document is based on teaching material originally developed for the Bren School of Environmental Science & Management’s [Master of Environmental Data Science](https://bren.ucsb.edu/masters-programs/master-environmental-data-science/academics-meds){target="_blank"} (MEDS) program. Check out [Creating your personal website using Quarto](https://ucsb-meds.github.io/creating-quarto-websites/){target="_blank"}, [Customizing Quarto websites](https://ucsb-meds.github.io/customizing-quarto-websites/#/title-slide){target="_blank"}, and [Adding a blog to your existing Quarto website](https://samanthacsik.github.io/posts/2022-10-24-quarto-blogs/){target="_blank"} for additional information and examples.* 
+*This document is based on teaching material originally developed for the Bren School of Environmental Science & Management’s [Master of Environmental Data Science](https://bren.ucsb.edu/masters-programs/master-environmental-data-science/academics-meds){target="_blank"} (MEDS) program. It combines content from three longer-form workshops -- [Creating your personal website using Quarto](https://ucsb-meds.github.io/creating-quarto-websites/){target="_blank"}, [Customizing Quarto websites](https://ucsb-meds.github.io/customizing-quarto-websites/#/title-slide){target="_blank"}, and [Adding a blog to your existing Quarto website](https://samanthacsik.github.io/posts/2022-10-24-quarto-blogs/){target="_blank"} -- and covers creating a personal website using Quarto, adding a blog, customizing colors & fonts using Sass, and deploying (for free!) using GitHub Pages. Check out the original workshops for additional details and examples.* 
 :::
 
 ::: {.g-col-12 .g-col-md-6}
@@ -30,7 +29,7 @@ format:
 #| eval: true
 #| echo: false
 #| fig-align: "center"
-#| out-width: "60%"
+#| out-width: "75%"
 knitr::include_graphics(here::here("images", "RLadies_hex.jpeg"))
 ```
 
@@ -51,18 +50,10 @@ knitr::include_graphics(here::here("images", "RLadies+.png"))
 
 {{< include /sections/1-create-scaffolding.qmd >}}
 
-::: {.panel-tabset}
-## **{{< fa brands r-project title="R programming language icon" >}} RStudio**
-
-{{< include /sections/1a-RStudio.qmd >}}
-
-## **{{< fa plus title="plus symbol" >}} Positron**
-
-{{< include /sections/1b-Positron.qmd >}}
-
-## **{{< fa terminal title="terminal symbol, |>" >}} Command line**
-
-{{< include /sections/1c-command-line.qmd >}}
-:::
-
 {{< include /sections/2-publish-with-github-pages.qmd >}}
+
+{{< include /sections/3-update-home-page.qmd >}}
+
+{{< include /sections/4-add-a-blog.qmd >}}
+
+{{< include /sections/5-customize.qmd >}}

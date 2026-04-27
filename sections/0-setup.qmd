@@ -13,7 +13,7 @@ format:
 To follow along, you'll need:
 
 -   [R](https://cloud.r-project.org/){target="_blank"} installed
--   Your preferred IDE installed -- I recommend [RStudio](https://posit.co/download/rstudio-desktop/#download){target="_blank"} or [Positron](https://positron.posit.co/download.html?_gl=1*11s0bz2*_ga*MTA1MTQ1MzA3NS4xNzc0MzAzNjkx*_ga_G020NYQMP9*czE3NzcwNzUyNjkkbzEkZzAkdDE3NzcwNzUyNzEkajYwJGwwJGgw){target="_blank"}
+-   Your preferred IDE installed -- I recommend [RStudio](https://posit.co/download/rstudio-desktop/#download){target="_blank"} or [Positron](https://positron.posit.co/download.html?_gl=1*11s0bz2*_ga*MTA1MTQ1MzA3NS4xNzc0MzAzNjkx*_ga_G020NYQMP9*czE3NzcwNzUyNjkkbzEkZzAkdDE3NzcwNzUyNzEkajYwJGwwJGgw){target="_blank"} (we'll use RStudio during this workshop, but check out the [original materials](https://ucsb-meds.github.io/creating-quarto-websites/){target="_blank"} for guidance on using Positron)
 -   [Quarto](https://quarto.org/docs/get-started/){target="_blank"} installed (Quarto comes pre-installed with RStudio v2022.07.1+ and Positron, so no extra downloads necessary)
 -   A [GitHub](https://github.com/){target="_blank"} account -- I recommend using a personal (rather than work) email
 -   [Git](https://git-scm.com/){target="_blank"} installed / configured and a personal access token (PAT) stored -- expand the note below for detailed instructions

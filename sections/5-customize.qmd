@@ -1,0 +1,12 @@
+---
+format: 
+  html:
+    theme: RLadies-styles.scss
+    toc: true
+    toc-location: left
+    toc-depth: 3
+    smooth-scroll: true
+---
+
+
+## {{< fa palette title="paint palette" >}} Update fonts & colors using Sass {#customize}
