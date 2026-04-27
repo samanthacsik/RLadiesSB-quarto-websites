@@ -88,6 +88,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#create-website-scaffolding" id="toc-create-website-scaffolding" class="nav-link" data-scroll-target="#create-website-scaffolding"><i class="fa-solid fa-seedling" title="Sprouted seedling" aria-label="seedling"></i> Create the scaffolding for your website</a></li>
   <li><a href="#github-pages" id="toc-github-pages" class="nav-link" data-scroll-target="#github-pages"><i class="fa-brands fa-github" title="GitHub Octocat" aria-label="github"></i> Build &amp; publish your site with GitHub Pages</a></li>
   <li><a href="#update-landing-page" id="toc-update-landing-page" class="nav-link" data-scroll-target="#update-landing-page"><i class="fa-solid fa-user" title="a person" aria-label="user"></i> Update your landing page</a></li>
+  <li><a href="#additional-configs" id="toc-additional-configs" class="nav-link" data-scroll-target="#additional-configs"><i class="fa-solid fa-gear" title="gear" aria-label="gear"></i> Some additional configurations</a></li>
   <li><a href="#add-a-blog" id="toc-add-a-blog" class="nav-link" data-scroll-target="#add-a-blog"><i class="fa-solid fa-blog" title="blog" aria-label="blog"></i> Add a blog</a>
   <ul class="collapse">
   <li><a href="#listing-page" id="toc-listing-page" class="nav-link" data-scroll-target="#listing-page">Setup your listing page</a></li>
@@ -968,7 +969,10 @@ Do <em>not</em> change the name of <code>index.qmd</code>
 </div>
 </div>
 </div>
-<ol start="3" type="1">
+</section>
+<section id="additional-configs" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="additional-configs"><i class="fa-solid fa-gear" title="gear" aria-label="gear"></i> Some additional configurations</h2>
+<ol type="1">
 <li><strong>Modify website appearance in <code>_quarto.yml</code></strong> The <code>_quarto.yml</code> file is a configuration file – any document rendered within the project directory will automatically inherit the metadata defined within this file. Some easy updates that make a big difference:</li>
 </ol>
 <div class="code-with-filename">
@@ -1043,7 +1047,7 @@ You aren’t required to have a <code>title</code> on <code>index.qmd</code>
 </div>
 </div>
 </div>
-<ol start="4" type="1">
+<ol start="2" type="1">
 <li><strong>Add additional pages to your website</strong> In the default Quarto website skeleton, there are two items in the navbar that appear as “Home” and “About.” Those navbar tabs link to two <code>.html</code> files (<code>index.html</code> and <code>about.html</code>) and are automatically rendered when when you Build to <code>docs/</code>. Adding a new page to your website requires two steps:</li>
 </ol>
 <ol type="a">
