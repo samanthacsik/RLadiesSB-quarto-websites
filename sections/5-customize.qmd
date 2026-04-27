@@ -8,5 +8,178 @@ format:
     smooth-scroll: true
 ---
 
-
 ## {{< fa palette title="paint palette" >}} Update fonts & colors using Sass {#customize}
+
+There are a number of ways to update a Quarto website's theme (e.g. colors, fonts), but the (arguably) fastest and easiest way to get started is by defining some [Sass](https://sass-lang.com/){target="_blank"} variables in a `.scss` file (stylesheet), then linking to that stylesheet in your `_quarto.yml` metadata. The steps below offer a "quick start guide approach," though I recommend checking out [these workshop materials](https://ucsb-meds.github.io/customizing-quarto-websites/#/title-slide){target="_blank"} on customizing Quarto websites using Sass & CSS for a much more thorough / deeper dive.
+
+### Create and apply a `.scss` stylesheet
+
+1. **Create a `styles.scss` file** in your repo's root directory (you can name it however you'd like), using the command `touch styles.scss` in the Terminal, or by **Blank File** > **Text File** > typing `styles.scss` from the RStudio Files pane.
+
+2. **Add the `/*-- scss:defaults --*/` region decorator to the top of `styles.scss`** ([required by Quarto](https://quarto.org/docs/output-formats/html-themes-more.html)) – you’ll write all your Sass variables underneath this:
+
+```{sass filename="styles.scss"}
+/*-- scss:defaults --*/
+```
+
+3. **Apply your `styles.scss` stylesheet to your website** using the `theme` option in `_quarto.yml`:
+
+```{r filename="_quarto.yml"}
+#| eval: false
+#| echo: true
+project:
+   # ~ additional YAML omitted for brevity ~
+
+website:
+  # ~ additional YAML omitted for brevity ~
+  
+format:
+  html:
+    theme: styles.scss # <1>
+    toc: false
+    page-layout: full
+```
+1. Apply your `styles.scss` stylesheet using the `theme` option
+
+::: {.callout-note collapse="true"}
+## **Comment out / remove `css: styles.css` from `_quarto.yml`**
+
+This tutorial doesn't cover writing CSS, though you *can* (and should) write any CSS in your `.scss` file (rather than writing it in a separate `.css` file). I recommend removing `styles.css` from `_quarto.yml`. You can also delete `styles.css` from your repo (you can always create a new one if you decide you want / need a `.css` file in the future).
+:::
+
+### Update website colors 
+
+1. **Define some color variables** using the syntax, `$variable-name: value;` (you get to decide what these variable names are!). Here, we define three colors: 
+
+```{sass filename="styles.scss"}
+// Colors
+$baby-blue: #E3F1F2;
+$dark-blue: #252D5C;
+$orange: #F26C25;
+```
+
+::: {.callout-tip}
+## **Use `//` for single line comments in `.scss` files**
+
+You may also create multi-line comments, which start with `/*` and end at the next `*/`.
+:::
+
+2. **Use your color variables as values for [Quarto’s Sass variables](https://quarto.org/docs/output-formats/html-themes.html#sass-variables).** Below, we specify only four, however there are a number of Sass variables which can be defined within SCSS files (find a [list of them here](https://quarto.org/docs/output-formats/html-themes.html#sass-variables)):
+
+```{sass filename="styles.scss"}
+/*-- scss:defaults --*/
+
+// Colors
+$baby-blue: #E3F1F2;
+$dark-blue: #252D5C;
+$orange: #F26C25;
+
+// Sass vars
+$body-bg: $baby-blue;
+$body-color: $dark-blue; 
+$link-color: $orange; 
+$footer-bg: $dark-blue;
+```
+
+[SCREENSHOT HERE]
+
+```{r}
+#| eval: true
+#| echo: false
+#| out-width: "100%"
+#| fig-align: "center"
+# knitr::include_graphics("media/sass-vars-colors.png")
+```
+
+::: {.center-text .gray-text}
+*Your newly styled site should look similar to this (be sure to run `quarto preview` in the Terminal, if it's not already running).*
+:::
+
+### Update website fonts
+
+1. **Find a Google font family** by browsing options at <https://fonts.google.com/>. There are *so* many options -- click on the **Filter** button in the top left corner of the page to help narrow your choices. For this exercise, we'll go with [Nunito](https://fonts.google.com/specimen/Nunito?query=nunito) (my personal favorite).
+
+::: {.callout-tip}
+## **If you want to bold or *italicize* text, you need to select a font family that has those styles**
+
+Not all font families come in every style. For example, [Nunito](https://fonts.google.com/specimen/Nunito?query=nunito) comes in a variety of weights (i.e. levels of boldness) and italic, while [Sen](https://fonts.google.com/specimen/Sen?query=sen) comes in a variety of weights, but *not* italic. This means that if you import and use Sen, you will not be able to italicize text.
+:::
+
+2. **Select a Google font family(ies)** by clicking the blue **Get Font** button in the top right corner of the page, which adds your font family to your "bag." You can add as many font families to your bag as you'd like to import, though we'll stick with just one (Nunito) for this exercise. Click **Get embed code**, then choose the **@import** radio button (beneath the **Web** menu option), which will provide your import code chunk. Copy everything between the `<style> </style>` tags (starting with `@import` and ending with `;`) to your clipboard.
+
+[SCREENSHOT HERE]
+
+```{r}
+#| eval: false
+#| echo: false
+#| fig-align: "center"
+#| out-width: "100%"
+# knitr::include_graphics("media/select-font.gif")
+```
+
+3. **Import your Google font** by pasting the import code into `styles.scss` (I always place this at the top of my stylesheet, beneath `/*-- scss:defaults --*/`):
+
+```{sass filename="styles.scss"}
+/*-- scss:defaults --*/
+
+// Import Google fonts
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+// Colors
+$baby-blue: #E3F1F2;
+$dark-blue: #252D5C;
+$orange: #F26C25;
+
+// Sass vars
+$body-bg: $baby-blue;
+$body-color: $dark-blue; 
+$link-color: $orange; 
+$footer-bg: $dark-blue;
+```
+
+4. **Apply your font using the `mainfont` option in `_quarto.yml`** -- this is the easiest way to use a single font across your entire website:
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: false
+project:
+  # ~ additional YAML omitted for brevity ~
+
+website:
+  # ~ additional YAML omitted for brevity ~
+
+format:
+  html:
+    theme: styles.scss
+    toc: false
+    page-layout: full
+    mainfont: Nunito # <1>
+```
+1. Be sure to spell the font family name exactly as it appears on Google Fonts
+
+[SCREENSHOT HERE]
+
+```{r}
+#| eval: false
+#| echo: false
+#| fig-align: "center"
+#| out-width: "100%"
+# knitr::include_graphics("media/updated-font.png")
+```
+
+::: {.center-text .gray-text}
+*Our updated website, with Nunito applied.*
+:::
+
+::: {.callout-tip}
+## **You can totally import and use more than one Google font!**
+
+But this requires a bit more Sass *and* CSS. While we won't get into that here, check out [these workshop materials](https://ucsb-meds.github.io/customizing-quarto-websites/#/title-slide) and some "in the wild" examples (e.g. like the stylesheet for [this very instructional document](https://github.com/samanthacsik/OHI-quarto-websites/blob/main/OHI-styles.scss) {{< fa face-smile-wink title="a winking face" >}} ).
+:::
+
+::: {.callout-important}
+## **Don't forget to *Render Website* and push your files back to GitHub, when finished!**
+
+GitHub Pages will then rebuild and redeploy your site at your URL.
+:::
