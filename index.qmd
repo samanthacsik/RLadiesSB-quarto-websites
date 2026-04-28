@@ -59,3 +59,5 @@ knitr::include_graphics(here::here("images", "RLadies+.png"))
 {{< include /sections/5-add-a-blog.qmd >}}
 
 {{< include /sections/6-customize.qmd >}}
+
+{{< include /sections/7-republish.qmd >}}

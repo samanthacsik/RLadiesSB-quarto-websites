@@ -10,7 +10,7 @@ format:
 
 ## {{< fa palette title="paint palette" >}} Update fonts & colors using Sass {#customize}
 
-There are a number of ways to update a Quarto website's theme (e.g. colors, fonts), but the (arguably) fastest and easiest way to get started is by defining some [Sass](https://sass-lang.com/){target="_blank"} variables in a `.scss` file (stylesheet), then linking to that stylesheet in your `_quarto.yml` metadata. The steps below offer a "quick start guide approach," though I recommend checking out [these workshop materials](https://ucsb-meds.github.io/customizing-quarto-websites/#/title-slide){target="_blank"} on customizing Quarto websites using Sass & CSS for a much more thorough / deeper dive.
+We've come a long way, but our website could still use a bit more *pizazz* with a theme that reflects our own personality and style. There are a number of ways to update a Quarto website's theme (e.g. colors, fonts). The (arguably) fastest and easiest way to get started is by defining some [Sass](https://sass-lang.com/){target="_blank"} variables in a `.scss` file (stylesheet), then linking to that stylesheet in your `_quarto.yml` metadata. The steps below offer a "quick start guide approach," though I recommend checking out [these workshop materials](https://ucsb-meds.github.io/customizing-quarto-websites/#/title-slide){target="_blank"} on customizing Quarto websites using Sass & CSS for a much more thorough / deeper dive.
 
 ### Create and apply a `.scss` stylesheet
 

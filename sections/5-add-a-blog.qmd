@@ -10,6 +10,8 @@ format:
 
 ## {{< fa blog title="blog" >}} Add a blog {#add-a-blog}
 
+Your website is a great place to showcase your work, ideas, and writing in the form a blog. Let's add one!
+
 ::: {.callout-note}
 ## To add a blog to your website, you'll need three things:
 
@@ -24,7 +26,7 @@ We'll create these in the following steps.
 
 1. **Create a `blog/` folder.** Jump to your repo's root directory and click on the **new folder button** in the **Files** pane. I'll name mine `blog/`, though the name is up to you (keep in mind that this folder name *will* appear as part of your eventual blog post's URL)
 
-2. **Create a listing page** (i.e. a web page with content that is automatically generated from a list of documents – in this case, that would be a list of blog posts). Your listing page takes the form of a `.qmd` file that lives in your repository’s root directory (I’ll be calling mine `blog.qmd` and giving it the title “My Blog” for demonstration purposes, though you can choose whatever file name and title you’d like).
+2. **Create a listing page** (i.e. a web page with content that is automatically generated from a list of documents – in this case, that would be a list of blog posts). Your listing page takes the form of a `.qmd` file that lives in your repository’s root directory (I’ll be calling mine `blog.qmd` and giving it the title “Blog” for demonstration purposes, though you can choose whatever file name and title you’d like).
 
 3. **Configure your listing page.** Specify how you’d like your listing page to be arranged by updating the YAML section of `blog.qmd`. There are a variety of options that you can specify. Below are a few to get you started.
 
@@ -32,9 +34,9 @@ We'll create these in the following steps.
 #| eval: false
 #| echo: true
 ---
-title: "My Blog"
+title: "Blog"
 listing: 
-  contents: posts # this name must match the name of the folder you created in step #1; here, all Quarto docs in the `posts` directory will be included on your listing page
+  contents: blog # this name must match the name of the folder you created in step #1; here, all Quarto docs in the `posts` directory will be included on your listing page
   type: grid # or `default` or `table`; each type has its own set of yaml options to include
   sort: "date desc" # can also sort on more than one field
   categories: true # allows you to sort posts by assigned categories 
@@ -55,22 +57,29 @@ website:
       - href: index.qmd
         text: Home
       - about.qmd
-      - posts.qmd # add your listing page file to your navbar, just like you would any other new web page
+      - href: resources.qmd
+        text: Resources
+      - blog.qmd # add your listing page file to your navbar, just like you would any other new web page
 
 ```
 
-5. **Preview your website.** Make sure your listing page shows up by previewing your website. Run quarto preview in your Terminal (this can be your RStudio or Positron Terminal, or in a separate Terminal window) to open up a live preview in a browser window. You should see something that looks like this (we haven’t created any posts yet, so it’ll be empty for now):
+5. **Preview your website.** You should see something that looks like this (we haven’t created any blog posts yet, so it’ll be empty for now):
 
-[ADD SCREENSHOT HERE]
+```{r}
+#| echo: false
+#| fig-align: center
+#| fig-cap: "Our listing page, which is currently empty since we haven't yet added any blog posts."
+knitr::include_graphics(here::here("images", "listing-page.png"))
+```
 
 ### Add a blog post {#add-blog-post}
 
-1. **Create a folder inside `blog/` to house your blog post.** This folder name will become the [slug](https://developer.mozilla.org/en-US/docs/Glossary/Slug){target="_blank"} for your published post, so name it something relevant, like a short description of what your blog post is about (make sure to separate words with hyphens or underscores, e.g. `my-blog-post`).
+1. **Create a folder inside `blog/` to house your blog post.** This folder name will become the [slug](https://developer.mozilla.org/en-US/docs/Glossary/Slug){target="_blank"} for your published post, so name it something relevant, like a short description of what your blog post is about (make sure to separate words with hyphens or underscores, e.g. `my-first-post`).
 
-2. **Create an `index.qmd` file *inside* your new folder.** Your file path should look something like this: `mysite/blog/my-blog-post/index.qmd`. This file is your blog post. Write all your content here!
+2. **Create an `index.qmd` file *inside* your new folder.** Your file path should look something like this: `mysite/blog/my-first-post/index.qmd`. This file is your blog post. Write all your content here!
 
 ::: {.callout-note collapse="true"}
-## Why name your blog post file, `index.qmd`
+## Why name your blog post file, `index.qmd`?
 
 This is mostly important for maintaining short, clean URLs.
 
@@ -79,24 +88,24 @@ Let’s take this very blog post for example. The content that you’re reading 
 If I named my blog post file something like, my-blog-post.qmd (rather than index.qmd), the resulting URL would instead look like, <https://samanthacsik.github.io/posts/2022-10-24-quarto-blogs/my-blog-post.html>. This isn’t necessarily wrong, but it does result in a lengthier URL – and short URLs tend to be easier to remember.
 :::
 
-3. **Configure your blog post.** You can add a variety of different options to the YAML section of index.qmd. Here are my go-to options:
+3. **Configure your blog post.** You can add a variety of different options to the YAML section of `index.qmd`. Here are my go-to options:
 
-```{r filename="blog/my-blog-post/index.qmd"}
+```{r filename="blog/my-first-post/index.qmd"}
 #| eval: false
 #| echo: true
 ---
 title: "blog post title" # <1>
 description: "blog post description (appears underneath the title in smaller text) which is included on the listing page"
 author: # <2>
-  - name: Samantha Csik # <2>
+  - name: Samantha Shanny-Csik # <2>
     url: https://samanthacsik.github.io/ # <2>
     orcid: 0000-0002-5300-3075 # <2>
     affiliation: R-Ladies Santa Barbara # <2>
     affiliation-url: https://www.meetup.com/rladies-santa-barbara/ # <2>
-date: 10-24-2022
+date: 05-13-2026
 categories: [Quarto, R, R-Ladies] # <3>
 citation: # <4>
-  url: https://samanthacsik.github.io/posts/2026-05-13-my-blog-post/ # <4>
+  url: https://samanthacsik.github.io/blog/my-first-post/ # <4>
 image: preview-image.png # <5>
 draft: false # <6>
 ---
@@ -108,10 +117,20 @@ Here is where I will start writing my actual blog post content...
 2.  You can include more than one **author** -- see [this post](https://samanthacsik.github.io/posts/2022-06-22-hello-quarto/){target="_blank"} and [source code](https://github.com/samanthacsik/samanthacsik.github.io/blob/main/posts/2022-06-22-hello-quarto/index.qmd){target="_blank"} as an example.
 3.  You may include as many self-defined **categories** as you'd like. Make sure that your spelling / capitalization / punctuation is consistent across blog posts should you apply the same categories to multiple posts.
 4.  Adding the **citation** option automatically generates both a [BibTeX citation](https://en.wikipedia.org/wiki/BibTeX){target="_blank"} and reference for your blog post, and adds them to the bottom of your post.
-5.  Include an image to add as a **preview image**, which will appear on your listing page alongside your post. Your image should live inside your post's subdirectory (e.g. `mysite/blog/my-blog-post/preview-image.png`).
+5.  Include an image to add as a **preview image**, which will appear on your listing page alongside your post. Your image should live inside your post's subdirectory (e.g. `mysite/blog/my-first-post/preview-image.png`).
 6.  Set **`draft: true`** while you're still working on your blog post to prevent it from showing up on your listing page, site map, or site search (it will still be available at a searchable URL). When you're ready to publish, just remove `draft: true` from your YAML (or set to `false`), then render your post. Quarto v1.5.56 introduced draft banners, which will appear on any draft posts. You can also control how drafts are linked / rendered on your website using the [`draft-mode` option](https://quarto.org/docs/websites/website-drafts.html#appearance-of-drafts){target="_blank"}. By default, any page set as a draft will not be linked or searchable. If you want your draft to still be searchable at it's URL (helpful if you want to share a draft with someone, but don't want it showing up on your listing page just yet), consider setting `draft-mode` to either `unlinked` or `visible` -- check out the [documentation](https://quarto.org/docs/websites/website-drafts.html){target="_blank"} for more information.
 
-[ADD SCREENSHOT OF LISTING PAGE AND BLOG POST DRAFT HERE]
+```{r}
+#| eval: true
+#| echo: false
+#| layout-ncol: 2
+#| column: page
+#| fig-subcap: 
+#| - "A grid-style listing page featuring one blog post with a preview image, title, three categories, description, author, and publishing date"
+#| - "An example draft blog post, with a banner-style title block. The draft notice will disappear and the blog post will appear on the listing page once `draft` is set to `false`."
+knitr::include_graphics(here::here("images", "ex-listing-page.png"))
+knitr::include_graphics(here::here("images", "my-first-post.png"))
+```
 
 ::: {.callout-note}
 ## Repeat steps 1-3 to add a new blog post

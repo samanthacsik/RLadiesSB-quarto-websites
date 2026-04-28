@@ -18,7 +18,7 @@ project:
   output-dir: docs
 
 website:
-  title: "Sam Csik" # <1>
+  title: "Sam Shanny-Csik" # <1>
   navbar:
     left:
       - href: index.qmd
@@ -49,7 +49,6 @@ Going for a more minimalist look? You can comment out (or remove) the `title` op
 ```{r}
 #| echo: false
 #| fig-align: center
-#| fig-cap: ""
 knitr::include_graphics(here::here("images", "no-page-title.png"))
 ```
 :::

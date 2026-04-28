@@ -10,15 +10,17 @@ format:
 
 ## {{< fa user title="a person" >}} Update your landing page {#update-landing-page}
 
+Our webiste might be deployed, but it's not so personalized. Let's work on making those important updates. Remember to spin up a preview (run `quarto preview` in the Terminal) to see your changes as we iterate.
+
 ::: {.callout-important}
 ## Don't mess with stuff in `docs/` 
 
 When you render your site, Quarto takes all your `.qmd` files, converts them to `.html` files (along with some other important stuff), and saves everything to your `docs/` folder. Your site now deploys from this folder, so you really don't want to mess with anything in here directly. Instead, make changes to your `.qmd` (and supporting, e.g. `_quarto.yml`) files, then rerender your site.
 :::
 
-1. **Add content to your landing page (`index.qmd`)** `index.html` (which is built from `index.qmd`) is the page people will arrive at when navigating to your website -- give this landing / home page a makeover by trying out some of the following:
+1. **Add content to your landing page (`index.qmd`).** `index.html` (which is built from `index.qmd`) is the page people will arrive at when navigating to your website -- give this landing / home page a makeover by trying out some of the following:
 
-  -   Update the YAML `title` in your `index.qmd` file. Here, I changed mine from `"mysite"` to my name, `"Samantha Csik"`
+  -   Update the YAML `title` in your `index.qmd` file. Here, I changed mine from `"mysite"` to my name, `"Samantha Shanny-Csik"`
 
   -   Delete the sample text and begin adding your own content -- a great place to start is a short blurb introducing yourself!
 
@@ -47,8 +49,8 @@ This is the default / expected name given to website landing / home pages. If yo
 ```{r filename="index.qmd"}
 #| eval: false
 ---
-title: "Samantha Csik"
-image: media/headshot.jpeg # <1>
+title: "Samantha Shanny-Csik"
+image: images/headshot.jpeg # <1>
 toc: false # <2>
 about: 
   template: jolla # <3>
@@ -81,4 +83,3 @@ about:
 #| fig-cap: "My Quarto website after updating my landing page with the built-in `jolla` template, adding an image, and linked buttons. Overall, a big improvement! However, our text is a bit squished in the center of the page -- we'll fix then in the next step."
 knitr::include_graphics(here::here("images", "with-about-page.png"))
 ```
-

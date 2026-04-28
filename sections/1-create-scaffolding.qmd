@@ -49,7 +49,7 @@ You should now see a folder called `mysite` (or whatever you named your Quarto p
 quarto preview
 ```
 
--   Your site preview should open up in your browser. Quit your preview by clicking the **Stop** button in the top right corner of your Terminal. 
+-   Your site preview should open up in your browser. Quit your preview by clicking the **Stop** button in the top right corner of your Terminal or by pressing `Ctrl` + `C`. 
 
 ```{r}
 #| eval: true
@@ -95,7 +95,7 @@ knitr::include_graphics(here::here("images", "git-tab.png"))
 
 Click on the **Git** tab in the top right pane of RStudio. Next to the ![A white diamond with two purple squares, one directly above and one directly to the right, connected to the diamond by a line.](images/branch.png){style="display: inline-block; margin: 0; position: relative; top: 0px; width:20px;height:18px;"} symbol, you should see a dropdown menu that displays the name of your current branch.
 
-## **{{< fa terminal title="terminal symbol, |>" >}} Command line / Terminal**
+## **{{< fa terminal title="terminal symbol, |>" >}} Terminal**
 
 Open **RStudio's Terminal** window (next to the Console) and run either `git branch` (this prints all local branches and highlights the one that you're currently on) or `git status` (the first printed line should say `On branch <branch_name>`). 
 
@@ -108,7 +108,7 @@ Open **RStudio's Terminal** window (next to the Console) and run either `git bra
 usethis::git_default_branch_rename(from = "master", to = "main")
 ```
 
-Confirm that your branch name was updated by running `git status` in your Terminal -- the first printed line should now read, `On branch main`. The above function only updates your default branch name for *this* respository. **You'll also want to update your git config file so that the default branch name of any future local git repository is automatically named `main`.**  To do so, run:
+Confirm that your branch name was updated to `main` by running `git branch` or `git status` in your Terminal. The above function only updates your default branch name for *this* respository. **You'll also want to update your git config file so that the default branch name of any future local git repository is automatically named `main`.**  To do so, run:
 
 ```{r filename="Console"}
 #| eval: false    

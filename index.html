@@ -100,6 +100,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#update-website-colors" id="toc-update-website-colors" class="nav-link" data-scroll-target="#update-website-colors">Update website colors</a></li>
   <li><a href="#update-website-fonts" id="toc-update-website-fonts" class="nav-link" data-scroll-target="#update-website-fonts">Update website fonts</a></li>
   </ul></li>
+  <li><a href="#redeploy" id="toc-redeploy" class="nav-link" data-scroll-target="#redeploy"><i class="fa-solid fa-code-merge" title="merging code into main" aria-label="code-merge"></i> Redeploy your website changes</a></li>
   </ul>
 </nav>
 </div>
@@ -465,7 +466,7 @@ Take a quick tour of your website files
 </div>
 </div>
 <ul>
-<li>Your site preview should open up in your browser. Quit your preview by clicking the <strong>Stop</strong> button in the top right corner of your Terminal.</li>
+<li>Your site preview should open up in your browser. Quit your preview by clicking the <strong>Stop</strong> button in the top right corner of your Terminal or by pressing <code>Ctrl</code> + <code>C</code>.</li>
 </ul>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -570,7 +571,7 @@ What is a git repository?
 <li><strong>Check the name of your default branch (the only branch you should have at the moment)</strong> – that is, the branch that all changes eventually get merged back into (if you’re building a website, this branch is typically the one you’ll want to deploy). There are multiple ways to check this – here are two easy options:</li>
 </ol>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href=""><strong><i class="fa-brands fa-r-project" title="R programming language icon" aria-label="r-project"></i> RStudio GUI buttons</strong></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href=""><strong><i class="fa-solid fa-terminal" title="terminal symbol, |>" aria-label="terminal"></i> Command line / Terminal</strong></a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href=""><strong><i class="fa-brands fa-r-project" title="R programming language icon" aria-label="r-project"></i> RStudio GUI buttons</strong></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href=""><strong><i class="fa-solid fa-terminal" title="terminal symbol, |>" aria-label="terminal"></i> Terminal</strong></a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
 <p>Click on the <strong>Git</strong> tab in the top right pane of RStudio. Next to the <img src="images/branch.png" class="img-fluid" style="display: inline-block; margin: 0; position: relative; top: 0px; width:20px;height:18px;" alt="A white diamond with two purple squares, one directly above and one directly to the right, connected to the diamond by a line."> symbol, you should see a dropdown menu that displays the name of your current branch.</p>
@@ -591,7 +592,7 @@ What is a git repository?
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">git_default_branch_rename</span>(<span class="at">from =</span> <span class="st">"master"</span>, <span class="at">to =</span> <span class="st">"main"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-<p>Confirm that your branch name was updated by running <code>git status</code> in your Terminal – the first printed line should now read, <code>On branch main</code>. The above function only updates your default branch name for <em>this</em> respository. <strong>You’ll also want to update your git config file so that the default branch name of any future local git repository is automatically named <code>main</code>.</strong> To do so, run:</p>
+<p>Confirm that your branch name was updated to <code>main</code> by running <code>git branch</code> or <code>git status</code> in your Terminal. The above function only updates your default branch name for <em>this</em> respository. <strong>You’ll also want to update your git config file so that the default branch name of any future local git repository is automatically named <code>main</code>.</strong> To do so, run:</p>
 <div class="cell">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
@@ -612,7 +613,7 @@ A git config file is a place to define your Git settings and preferences
 </div>
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>This includes things like setting your <code>user.name</code> and <code>user.email</code>, which are used to identify the author of commits (recall that we did this when we first configured git as part of the <a href="https://ucsb-meds.github.io/MEDS-installation-guide/#configure-git" target="_blank">MEDS Installation Guide</a>). It’s also a place for us to permenently set the name of our default branch for all future git repositories. You can view the contents of your entire git config file by running the following command in your Terminal:</p>
+<p>This includes things like setting your <code>user.name</code> and <code>user.email</code>, which are used to identify the author of commits (you may have done this recently as part of the initial setup prior to this workshop). It’s also a place for us to permenently set the name of our default branch for all future git repositories. You can view the contents of your entire git config file by running the following command in your Terminal:</p>
 <div class="cell">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
@@ -710,12 +711,12 @@ Understanding the difference between Git vs.&nbsp;Github
 </div>
 <div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><code>.nojekyll</code> is a <em>hidden</em> file which may not visibly appear in your directory (e.g.&nbsp;if using RStudio). Regardless, you <em>should</em> see it show up as a file to track with git (either under the <strong>Git</strong> tab in RStudio, the <strong>Source Control</strong> menu in Positron, or when you run <code>git status</code> in the command line). You can also view hidden files in Finder (Mac) using the keyboard shortcut <code>Cmd</code> + <code>Shift</code> + <code>.</code>, or follow <a href="https://support.microsoft.com/en-us/windows/show-hidden-files-0320fe58-0117-fd59-6851-9b7f9840fdb2" target="_blank">these instructions</a> for Windows 10 and 11.</p>
+<p><code>.nojekyll</code> is a <em>hidden</em> file which may not visibly appear in your directory (e.g.&nbsp;if using RStudio). Regardless, you <em>should</em> see it show up as a file to track with git (e.g.&nbsp;under the <strong>Git</strong> tab in RStudio, or when you run <code>git status</code> in the command line). You can also view hidden files in Finder (Mac) using the keyboard shortcut <code>Cmd</code> + <code>Shift</code> + <code>.</code>, or follow <a href="https://support.microsoft.com/en-us/windows/show-hidden-files-0320fe58-0117-fd59-6851-9b7f9840fdb2" target="_blank">these instructions</a> for Windows 10 and 11.</p>
 </div>
 </div>
 </div>
 <ol start="2" type="1">
-<li><strong>Set the <code>output-dir</code> in your <code>_quarto.yml</code> file to <code>docs</code></strong> (it’s easiest to open and edit this using RStudio):</li>
+<li><strong>Set the <code>output-dir</code> in your <code>_quarto.yml</code> file to <code>docs</code>.</strong> The <code>output-dir</code> is the directory (i.e.&nbsp;folder) where your rendered <code>.html</code> (and other important) files will automatically be saved to when you “Build” your website (see the next step!):</li>
 </ol>
 <div class="cell">
 <div class="code-with-filename">
@@ -729,24 +730,8 @@ Understanding the difference between Git vs.&nbsp;Github
 <span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ~ additional metadata excluded for brevity ~</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Your rendered website pages will be saved to <code>output-dir</code> (here, that’s the <code>docs/</code> folder)
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>The <code>output-dir</code> is the directory (i.e.&nbsp;folder) where your rendered <code>.html</code> (and other important) files will automatically be saved to when you “Build” your website (see the next step!) – that is, when you convert all your <code>.qmd</code> files to the <code>.html</code> files that your web browser can interpret / display.</p>
-</div>
-</div>
-</div>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -755,7 +740,7 @@ You can delete <code>_site/</code> if it exists and if you’re publishing with 
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>If you previewed or built your site <em>before</em> setting <code>output-dir</code> to <code>docs</code> in <code>_quarto.yml</code>, you’ll notice a <code>_site/</code> directory inside your repository – this is the default output directory name. Because GitHub Pages will expect a <code>docs/</code> folder to deploy from, you can delete <code>_site/</code> altogether (and push your deletion, if you’ve already committed / pushed <code>_site/</code> to GitHub).</p>
 <p>From the <strong>Files</strong> pane, check the box next to <code>_site</code> &gt; click the <strong>Delete</strong> button</p>
@@ -763,7 +748,7 @@ You can delete <code>_site/</code> if it exists and if you’re publishing with 
 </div>
 </div>
 <ol start="3" type="1">
-<li><strong>Render your website.</strong> Click on the <strong>Build</strong> tab (top left pane in RStudio, if you have the default layout), then <strong>Render Website</strong>. You should see your minimal, albeit functional, soon-to-be website appear in the <strong>Viewer</strong> pane. You can click on the <img src="images/view_in_browser.png" alt="A browser window overlaid by an arrow pointing up and angled to the right." style="display: inline-block; margin: 0; position: relative; top: 0px; width:25px;height:20px;"> button to open your file in your web browser. <strong>Note:</strong> your website is currently being hosted by your local machine, not at a searchable URL. We’ll get there soon though!</li>
+<li><strong>Render your website.</strong> Click on the <strong>Build</strong> tab, then <strong>Render Website</strong>. You should see your minimal, albeit functional, soon-to-be website appear in the <strong>Viewer</strong> pane. You can click on the <img src="images/view_in_browser.png" alt="A browser window overlaid by an arrow pointing up and angled to the right." style="display: inline-block; margin: 0; position: relative; top: 0px; width:25px;height:20px;"> button to open your file in your web browser. <strong>Note:</strong> your website is currently being hosted by your local machine, not at a searchable URL. We’ll get there soon though!</li>
 </ol>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -783,7 +768,7 @@ Always “Render Website” before pushing changes that you want to deploy!
 <li><strong>Send all of your website files from your local git repository to your remote GitHub repository.</strong> You can do this from RStudio’s <strong>Git</strong> tab, or via the <strong>command line</strong>:</li>
 </ol>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true" href=""><strong><i class="fa-brands fa-r-project" title="R programming language icon" aria-label="r-project"></i> RStudio GUI buttons</strong></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false" href=""><strong><i class="fa-solid fa-terminal" title="terminal symbol, |>" aria-label="terminal"></i> Command line / Terminal</strong></a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true" href=""><strong><i class="fa-brands fa-r-project" title="R programming language icon" aria-label="r-project"></i> RStudio GUI buttons</strong></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false" href=""><strong><i class="fa-solid fa-terminal" title="terminal symbol, |>" aria-label="terminal"></i> Terminal</strong></a></li></ul>
 <div class="tab-content">
 <div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
 <ol type="i">
@@ -828,7 +813,7 @@ Always “Render Website” before pushing changes that you want to deploy!
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -837,7 +822,7 @@ Check out the <strong>Actions</strong> tab on GitHub to view deployment status
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>See deployment status, time of each deployment, and how long it took to deploy each run. You can also find failed deployments here (yes, it does happen on occasion) and take action on fixing them.</p>
 <div class="cell">
@@ -855,6 +840,7 @@ Check out the <strong>Actions</strong> tab on GitHub to view deployment status
 </section>
 <section id="update-landing-page" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="update-landing-page"><i class="fa-solid fa-user" title="a person" aria-label="user"></i> Update your landing page</h2>
+<p>Our webiste might be deployed, but it’s not so personalized. Let’s work on making those important updates. Remember to spin up a preview (run <code>quarto preview</code> in the Terminal) to see your changes as we iterate.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -869,10 +855,10 @@ Don’t mess with stuff in <code>docs/</code>
 </div>
 </div>
 <ol type="1">
-<li><strong>Add content to your landing page (<code>index.qmd</code>)</strong> <code>index.html</code> (which is built from <code>index.qmd</code>) is the page people will arrive at when navigating to your website – give this landing / home page a makeover by trying out some of the following:</li>
+<li><strong>Add content to your landing page (<code>index.qmd</code>).</strong> <code>index.html</code> (which is built from <code>index.qmd</code>) is the page people will arrive at when navigating to your website – give this landing / home page a makeover by trying out some of the following:</li>
 </ol>
 <ul>
-<li><p>Update the YAML <code>title</code> in your <code>index.qmd</code> file. Here, I changed mine from <code>"mysite"</code> to my name, <code>"Samantha Csik"</code></p></li>
+<li><p>Update the YAML <code>title</code> in your <code>index.qmd</code> file. Here, I changed mine from <code>"mysite"</code> to my name, <code>"Samantha Shanny-Csik"</code></p></li>
 <li><p>Delete the sample text and begin adding your own content – a great place to start is a short blurb introducing yourself!</p></li>
 </ul>
 <div class="cell" data-layout-align="center">
@@ -913,8 +899,8 @@ Do <em>not</em> change the name of <code>index.qmd</code>
 <pre><strong>index.qmd</strong></pre>
 </div>
 <div class="sourceCode cell-code" id="annotated-cell-8"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-8-1"><a href="#annotated-cell-8-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
-<span id="annotated-cell-8-2"><a href="#annotated-cell-8-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">"Samantha Csik"</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="1" onclick="event.preventDefault();" href="">1</a><span id="annotated-cell-8-3" class="code-annotation-target"><a href="#annotated-cell-8-3" aria-hidden="true" tabindex="-1"></a>image<span class="sc">:</span> media<span class="sc">/</span>headshot.jpeg</span>
+<span id="annotated-cell-8-2"><a href="#annotated-cell-8-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">"Samantha Shanny-Csik"</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="1" onclick="event.preventDefault();" href="">1</a><span id="annotated-cell-8-3" class="code-annotation-target"><a href="#annotated-cell-8-3" aria-hidden="true" tabindex="-1"></a>image<span class="sc">:</span> images<span class="sc">/</span>headshot.jpeg</span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="2" onclick="event.preventDefault();" href="">2</a><span id="annotated-cell-8-4" class="code-annotation-target"><a href="#annotated-cell-8-4" aria-hidden="true" tabindex="-1"></a>toc<span class="sc">:</span> false</span>
 <span id="annotated-cell-8-5"><a href="#annotated-cell-8-5" aria-hidden="true" tabindex="-1"></a>about<span class="sc">:</span> </span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="3" onclick="event.preventDefault();" href="">3</a><span id="annotated-cell-8-6" class="code-annotation-target"><a href="#annotated-cell-8-6" aria-hidden="true" tabindex="-1"></a>  template<span class="sc">:</span> jolla</span>
@@ -984,7 +970,7 @@ Do <em>not</em> change the name of <code>index.qmd</code>
 <span id="annotated-cell-9-3"><a href="#annotated-cell-9-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">output-dir</span><span class="kw">:</span><span class="at"> docs</span></span>
 <span id="annotated-cell-9-4"><a href="#annotated-cell-9-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="annotated-cell-9-5"><a href="#annotated-cell-9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">website</span><span class="kw">:</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-9" data-target-annotation="1" onclick="event.preventDefault();" href="">1</a><span id="annotated-cell-9-6" class="code-annotation-target"><a href="#annotated-cell-9-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Sam Csik"</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-9" data-target-annotation="1" onclick="event.preventDefault();" href="">1</a><span id="annotated-cell-9-6" class="code-annotation-target"><a href="#annotated-cell-9-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Sam Shanny-Csik"</span></span>
 <span id="annotated-cell-9-7"><a href="#annotated-cell-9-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">navbar</span><span class="kw">:</span></span>
 <span id="annotated-cell-9-8"><a href="#annotated-cell-9-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">left</span><span class="kw">:</span></span>
 <span id="annotated-cell-9-9"><a href="#annotated-cell-9-9" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> index.qmd</span></span>
@@ -1023,7 +1009,7 @@ Do <em>not</em> change the name of <code>index.qmd</code>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1032,7 +1018,7 @@ You aren’t required to have a <code>title</code> on <code>index.qmd</code>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-17" class="callout-17-contents callout-collapse collapse">
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Going for a more minimalist look? You can comment out (or remove) the <code>title</code> option from <code>index.qmd</code>.</p>
 <div class="cell" data-layout-align="center">
@@ -1118,8 +1104,9 @@ You aren’t required to have a <code>title</code> on <code>index.qmd</code>
 </div>
 </div>
 </section>
-<section id="add-a-blog" class="level2">
+<section id="add-a-blog" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="add-a-blog"><i class="fa-solid fa-blog" title="blog" aria-label="blog"></i> Add a blog</h2>
+<p>Your website is a great place to showcase your work, ideas, and writing in the form a blog. Let’s add one!</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1142,7 +1129,7 @@ To add a blog to your website, you’ll need three things:
 <h3 class="anchored" data-anchor-id="listing-page">Setup your listing page</h3>
 <ol type="1">
 <li><p><strong>Create a <code>blog/</code> folder.</strong> Jump to your repo’s root directory and click on the <strong>new folder button</strong> in the <strong>Files</strong> pane. I’ll name mine <code>blog/</code>, though the name is up to you (keep in mind that this folder name <em>will</em> appear as part of your eventual blog post’s URL)</p></li>
-<li><p><strong>Create a listing page</strong> (i.e.&nbsp;a web page with content that is automatically generated from a list of documents – in this case, that would be a list of blog posts). Your listing page takes the form of a <code>.qmd</code> file that lives in your repository’s root directory (I’ll be calling mine <code>blog.qmd</code> and giving it the title “My Blog” for demonstration purposes, though you can choose whatever file name and title you’d like).</p></li>
+<li><p><strong>Create a listing page</strong> (i.e.&nbsp;a web page with content that is automatically generated from a list of documents – in this case, that would be a list of blog posts). Your listing page takes the form of a <code>.qmd</code> file that lives in your repository’s root directory (I’ll be calling mine <code>blog.qmd</code> and giving it the title “Blog” for demonstration purposes, though you can choose whatever file name and title you’d like).</p></li>
 <li><p><strong>Configure your listing page.</strong> Specify how you’d like your listing page to be arranged by updating the YAML section of <code>blog.qmd</code>. There are a variety of options that you can specify. Below are a few to get you started.</p></li>
 </ol>
 <div class="cell">
@@ -1151,9 +1138,9 @@ To add a blog to your website, you’ll need three things:
 <pre><strong>blog.qmd</strong></pre>
 </div>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">"My Blog"</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">"Blog"</span></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>listing<span class="sc">:</span> </span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  contents<span class="sc">:</span> posts <span class="co"># this name must match the name of the folder you created in step #1; here, all Quarto docs in the `posts` directory will be included on your listing page</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  contents<span class="sc">:</span> blog <span class="co"># this name must match the name of the folder you created in step #1; here, all Quarto docs in the `posts` directory will be included on your listing page</span></span>
 <span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  type<span class="sc">:</span> grid <span class="co"># or `default` or `table`; each type has its own set of yaml options to include</span></span>
 <span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  sort<span class="sc">:</span> <span class="st">"date desc"</span> <span class="co"># can also sort on more than one field</span></span>
 <span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>  categories<span class="sc">:</span> true <span class="co"># allows you to sort posts by assigned categories </span></span>
@@ -1177,31 +1164,42 @@ To add a blog to your website, you’ll need three things:
 <span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>      <span class="sc">-</span> href<span class="sc">:</span> index.qmd</span>
 <span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>        text<span class="sc">:</span> Home</span>
 <span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>      <span class="sc">-</span> about.qmd</span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>      <span class="sc">-</span> posts.qmd <span class="co"># add your listing page file to your navbar, just like you would any other new web page</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>      <span class="sc">-</span> href<span class="sc">:</span> resources.qmd</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>        text<span class="sc">:</span> Resources</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>      <span class="sc">-</span> blog.qmd <span class="co"># add your listing page file to your navbar, just like you would any other new web page</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <ol start="5" type="1">
-<li><strong>Preview your website.</strong> Make sure your listing page shows up by previewing your website. Run quarto preview in your Terminal (this can be your RStudio or Positron Terminal, or in a separate Terminal window) to open up a live preview in a browser window. You should see something that looks like this (we haven’t created any posts yet, so it’ll be empty for now):</li>
+<li><strong>Preview your website.</strong> You should see something that looks like this (we haven’t created any blog posts yet, so it’ll be empty for now):</li>
 </ol>
-<p>[ADD SCREENSHOT HERE]</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/listing-page.png" class="img-fluid figure-img" width="1552"></p>
+<figcaption>Our listing page, which is currently empty since we haven’t yet added any blog posts.</figcaption>
+</figure>
+</div>
+</div>
+</div>
 </section>
-<section id="add-blog-post" class="level3">
+<section id="add-blog-post" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="add-blog-post">Add a blog post</h3>
 <ol type="1">
-<li><p><strong>Create a folder inside <code>blog/</code> to house your blog post.</strong> This folder name will become the <a href="https://developer.mozilla.org/en-US/docs/Glossary/Slug" target="_blank">slug</a> for your published post, so name it something relevant, like a short description of what your blog post is about (make sure to separate words with hyphens or underscores, e.g.&nbsp;<code>my-blog-post</code>).</p></li>
-<li><p><strong>Create an <code>index.qmd</code> file <em>inside</em> your new folder.</strong> Your file path should look something like this: <code>mysite/blog/my-blog-post/index.qmd</code>. This file is your blog post. Write all your content here!</p></li>
+<li><p><strong>Create a folder inside <code>blog/</code> to house your blog post.</strong> This folder name will become the <a href="https://developer.mozilla.org/en-US/docs/Glossary/Slug" target="_blank">slug</a> for your published post, so name it something relevant, like a short description of what your blog post is about (make sure to separate words with hyphens or underscores, e.g.&nbsp;<code>my-first-post</code>).</p></li>
+<li><p><strong>Create an <code>index.qmd</code> file <em>inside</em> your new folder.</strong> Your file path should look something like this: <code>mysite/blog/my-first-post/index.qmd</code>. This file is your blog post. Write all your content here!</p></li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Why name your blog post file, <code>index.qmd</code>
+Why name your blog post file, <code>index.qmd</code>?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-19" class="callout-19-contents callout-collapse collapse">
+<div id="callout-18" class="callout-18-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>This is mostly important for maintaining short, clean URLs.</p>
 <p>Let’s take this very blog post for example. The content that you’re reading right now is written to the file, samanthacsik.github.io/posts/2022-10-24-quarto-blogs/index.qmd (you can check it out on <a href="https://github.com/samanthacsik/samanthacsik.github.io/blob/main/posts/2022-10-24-quarto-blogs/index.qmd" target="_blank">GitHub</a>), and the resulting URL is <a href="https://samanthacsik.github.io/posts/2022-10-24-quarto-blogs/" target="_blank">https://samanthacsik.github.io/posts/2022-10-24-quarto-blogs/</a>.</p>
@@ -1210,26 +1208,26 @@ Why name your blog post file, <code>index.qmd</code>
 </div>
 </div>
 <ol start="3" type="1">
-<li><strong>Configure your blog post.</strong> You can add a variety of different options to the YAML section of index.qmd. Here are my go-to options:</li>
+<li><strong>Configure your blog post.</strong> You can add a variety of different options to the YAML section of <code>index.qmd</code>. Here are my go-to options:</li>
 </ol>
 <div class="cell">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
-<pre><strong>blog/my-blog-post/index.qmd</strong></pre>
+<pre><strong>blog/my-first-post/index.qmd</strong></pre>
 </div>
 <div class="sourceCode cell-code" id="annotated-cell-14"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-14-1"><a href="#annotated-cell-14-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-14" data-target-annotation="1" onclick="event.preventDefault();" href="">1</a><span id="annotated-cell-14-2" class="code-annotation-target"><a href="#annotated-cell-14-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">"blog post title"</span></span>
 <span id="annotated-cell-14-3"><a href="#annotated-cell-14-3" aria-hidden="true" tabindex="-1"></a>description<span class="sc">:</span> <span class="st">"blog post description (appears underneath the title in smaller text) which is included on the listing page"</span></span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-14" data-target-annotation="2" onclick="event.preventDefault();" href="">2</a><span id="annotated-cell-14-4" class="code-annotation-target"><a href="#annotated-cell-14-4" aria-hidden="true" tabindex="-1"></a>author<span class="sc">:</span></span>
-<span id="annotated-cell-14-5"><a href="#annotated-cell-14-5" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span> name<span class="sc">:</span> Samantha Csik</span>
+<span id="annotated-cell-14-5"><a href="#annotated-cell-14-5" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span> name<span class="sc">:</span> Samantha Shanny<span class="sc">-</span>Csik</span>
 <span id="annotated-cell-14-6"><a href="#annotated-cell-14-6" aria-hidden="true" tabindex="-1"></a>    url<span class="sc">:</span> https<span class="sc">:</span><span class="er">//</span>samanthacsik.github.io<span class="sc">/</span></span>
 <span id="annotated-cell-14-7"><a href="#annotated-cell-14-7" aria-hidden="true" tabindex="-1"></a>    orcid<span class="sc">:</span> <span class="dv">0000-0002-5300-3075</span></span>
 <span id="annotated-cell-14-8"><a href="#annotated-cell-14-8" aria-hidden="true" tabindex="-1"></a>    affiliation<span class="sc">:</span> R<span class="sc">-</span>Ladies Santa Barbara</span>
 <span id="annotated-cell-14-9"><a href="#annotated-cell-14-9" aria-hidden="true" tabindex="-1"></a>    affiliation<span class="sc">-</span>url<span class="sc">:</span> https<span class="sc">:</span><span class="er">//</span>www.meetup.com<span class="sc">/</span>rladies<span class="sc">-</span>santa<span class="sc">-</span>barbara<span class="sc">/</span></span>
-<span id="annotated-cell-14-10"><a href="#annotated-cell-14-10" aria-hidden="true" tabindex="-1"></a>date<span class="sc">:</span> <span class="dv">10-24-2022</span></span>
+<span id="annotated-cell-14-10"><a href="#annotated-cell-14-10" aria-hidden="true" tabindex="-1"></a>date<span class="sc">:</span> <span class="dv">05-13-2026</span></span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-14" data-target-annotation="3" onclick="event.preventDefault();" href="">3</a><span id="annotated-cell-14-11" class="code-annotation-target"><a href="#annotated-cell-14-11" aria-hidden="true" tabindex="-1"></a>categories<span class="sc">:</span> [Quarto, R, R<span class="sc">-</span>Ladies]</span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-14" data-target-annotation="4" onclick="event.preventDefault();" href="">4</a><span id="annotated-cell-14-12" class="code-annotation-target"><a href="#annotated-cell-14-12" aria-hidden="true" tabindex="-1"></a>citation<span class="sc">:</span></span>
-<span id="annotated-cell-14-13"><a href="#annotated-cell-14-13" aria-hidden="true" tabindex="-1"></a>  url<span class="sc">:</span> https<span class="sc">:</span><span class="er">//</span>samanthacsik.github.io<span class="sc">/</span>posts<span class="sc">/</span><span class="dv">2026-05-13</span><span class="sc">-</span>my<span class="sc">-</span>blog<span class="sc">-</span>post<span class="sc">/</span></span>
+<span id="annotated-cell-14-13"><a href="#annotated-cell-14-13" aria-hidden="true" tabindex="-1"></a>  url<span class="sc">:</span> https<span class="sc">:</span><span class="er">//</span>samanthacsik.github.io<span class="sc">/</span>blog<span class="sc">/</span>my<span class="sc">-</span>first<span class="sc">-</span>post<span class="sc">/</span></span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-14" data-target-annotation="5" onclick="event.preventDefault();" href="">5</a><span id="annotated-cell-14-14" class="code-annotation-target"><a href="#annotated-cell-14-14" aria-hidden="true" tabindex="-1"></a>image<span class="sc">:</span> preview<span class="sc">-</span>image.png</span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-14" data-target-annotation="6" onclick="event.preventDefault();" href="">6</a><span id="annotated-cell-14-15" class="code-annotation-target"><a href="#annotated-cell-14-15" aria-hidden="true" tabindex="-1"></a>draft<span class="sc">:</span> false</span>
 <span id="annotated-cell-14-16"><a href="#annotated-cell-14-16" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
@@ -1256,7 +1254,7 @@ Why name your blog post file, <code>index.qmd</code>
 </dd>
 <dt data-target-cell="annotated-cell-14" data-target-annotation="5">5</dt>
 <dd>
-<span data-code-cell="annotated-cell-14" data-code-lines="14" data-code-annotation="5">Include an image to add as a <strong>preview image</strong>, which will appear on your listing page alongside your post. Your image should live inside your post’s subdirectory (e.g.&nbsp;<code>mysite/blog/my-blog-post/preview-image.png</code>).</span>
+<span data-code-cell="annotated-cell-14" data-code-lines="14" data-code-annotation="5">Include an image to add as a <strong>preview image</strong>, which will appear on your listing page alongside your post. Your image should live inside your post’s subdirectory (e.g.&nbsp;<code>mysite/blog/my-first-post/preview-image.png</code>).</span>
 </dd>
 <dt data-target-cell="annotated-cell-14" data-target-annotation="6">6</dt>
 <dd>
@@ -1265,7 +1263,29 @@ Why name your blog post file, <code>index.qmd</code>
 </dl>
 </div>
 </div>
-<p>[ADD SCREENSHOT OF LISTING PAGE AND BLOG POST DRAFT HERE]</p>
+<div>
+
+</div>
+<div class="cell column-page quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/ex-listing-page.png" class="img-fluid figure-img" width="1552"></p>
+<figcaption>A grid-style listing page featuring one blog post with a preview image, title, three categories, description, author, and publishing date</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/my-first-post.png" class="img-fluid figure-img" width="1552"></p>
+<figcaption>An example draft blog post, with a banner-style title block. The draft notice will disappear and the blog post will appear on the listing page once <code>draft</code> is set to <code>false</code>.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1283,7 +1303,7 @@ Repeat steps 1-3 to add a new blog post
 </section>
 <section id="customize" class="level2">
 <h2 class="anchored" data-anchor-id="customize"><i class="fa-solid fa-palette" title="paint palette" aria-label="palette"></i> Update fonts &amp; colors using Sass</h2>
-<p>There are a number of ways to update a Quarto website’s theme (e.g.&nbsp;colors, fonts), but the (arguably) fastest and easiest way to get started is by defining some <a href="https://sass-lang.com/" target="_blank">Sass</a> variables in a <code>.scss</code> file (stylesheet), then linking to that stylesheet in your <code>_quarto.yml</code> metadata. The steps below offer a “quick start guide approach,” though I recommend checking out <a href="https://ucsb-meds.github.io/customizing-quarto-websites/#/title-slide" target="_blank">these workshop materials</a> on customizing Quarto websites using Sass &amp; CSS for a much more thorough / deeper dive.</p>
+<p>We’ve come a long way, but our website could still use a bit more <em>pizazz</em> with a theme that reflects our own personality and style. There are a number of ways to update a Quarto website’s theme (e.g.&nbsp;colors, fonts). The (arguably) fastest and easiest way to get started is by defining some <a href="https://sass-lang.com/" target="_blank">Sass</a> variables in a <code>.scss</code> file (stylesheet), then linking to that stylesheet in your <code>_quarto.yml</code> metadata. The steps below offer a “quick start guide approach,” though I recommend checking out <a href="https://ucsb-meds.github.io/customizing-quarto-websites/#/title-slide" target="_blank">these workshop materials</a> on customizing Quarto websites using Sass &amp; CSS for a much more thorough / deeper dive.</p>
 <section id="create-and-apply-a-.scss-stylesheet" class="level3">
 <h3 class="anchored" data-anchor-id="create-and-apply-a-.scss-stylesheet">Create and apply a <code>.scss</code> stylesheet</h3>
 <ol type="1">
@@ -1331,7 +1351,7 @@ Repeat steps 1-3 to add a new blog post
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1340,7 +1360,7 @@ Repeat steps 1-3 to add a new blog post
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-21" class="callout-21-contents callout-collapse collapse">
+<div id="callout-20" class="callout-20-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>This tutorial doesn’t cover writing CSS, though you <em>can</em> (and should) write any CSS in your <code>.scss</code> file (rather than writing it in a separate <code>.css</code> file). I recommend removing <code>styles.css</code> from <code>_quarto.yml</code>. You can also delete <code>styles.css</code> from your repo (you can always create a new one if you decide you want / need a <code>.css</code> file in the future).</p>
 </div>
@@ -1515,6 +1535,55 @@ Repeat steps 1-3 to add a new blog post
 </div>
 </div>
 </section>
+</section>
+<section id="redeploy" class="level2">
+<h2 class="anchored" data-anchor-id="redeploy"><i class="fa-solid fa-code-merge" title="merging code into main" aria-label="code-merge"></i> Redeploy your website changes</h2>
+<p>We’ve made lots of great changes, and now we need to publish them. Thankfully, this is fairly straightforward:</p>
+<ol type="1">
+<li><p><strong>Render your website.</strong> You can do this by either navigating to the <strong>Build</strong> tab in RStudio and clicking the <strong>Render Website</strong> button, <em>or</em> running <code>render quarto</code> in your Terminal. This converts all <code>.qmd</code> files to <code>.html</code> and ensures that all website components are stitched together correctly. If you do not render your website before pushing your files, your changes will not deploy.</p></li>
+<li><p><strong>Push your files to GitHub.</strong> You can do so using the RStudio GUI buttons in the <strong>Git</strong> tab or via the Terminal.</p></li>
+<li><p><strong>Voila! Keep an eye on the GitHub Actions tab</strong> to see when your redeployed website is ready to view.</p></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Working on branches is recommended!
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-25" class="callout-25-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Despite not practicing it here today, I almost always work on a branch when making changes to my website – this way I can safely test changes before deploying them to my live site. To create a branch:</p>
+<ol type="1">
+<li><p>Check that you’re on <code>main</code> by typing <code>git branch</code> into the RStudio Terminal. If you’re not on <code>main</code>, you can switch by running <code>git checkout main</code>.</p></li>
+<li><p>Create a local git branch from <code>main</code> by running the following in your Terminal:</p></li>
+</ol>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Command line / Terminal</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>git checkout <span class="sc">-</span>b my<span class="sc">-</span>new<span class="sc">-</span>branch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<ol start="3" type="1">
+<li>Push your new local branch to GitHub by running the following in your Terminal:</li>
+</ol>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Command line / Terminal</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>git push <span class="sc">-</span>u origin my<span class="sc">-</span>new<span class="sc">-</span>branch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p>You’re now ready to work as normal! Once satisfied with your changes, you can <code>git add</code>, <code>git commit -m "my commit message"</code>, and <code>git push</code> (or use the RStudio GUI buttons in the Git tab) your files. Open a pull request from GitHub and merge into <code>main</code> to integrate your changes (this step is important! Your site will not redeploy until your changes have been merged from your branch into <code>main</code>).</p>
+</div>
+</div>
+</div>
 </section>
 
 </main>
