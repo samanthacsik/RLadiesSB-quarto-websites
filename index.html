@@ -1307,8 +1307,8 @@ Repeat steps 1-3 to add a new blog post
 <section id="create-and-apply-a-.scss-stylesheet" class="level3">
 <h3 class="anchored" data-anchor-id="create-and-apply-a-.scss-stylesheet">Create and apply a <code>.scss</code> stylesheet</h3>
 <ol type="1">
-<li><p><strong>Create a <code>styles.scss</code> file</strong> in your repo’s root directory (you can name it however you’d like), using the command <code>touch styles.scss</code> in the Terminal, or by <strong>Blank File</strong> &gt; <strong>Text File</strong> &gt; typing <code>styles.scss</code> from the RStudio Files pane.</p></li>
-<li><p><strong>Add the <code>/*-- scss:defaults --*/</code> region decorator to the top of <code>styles.scss</code></strong> (<a href="https://quarto.org/docs/output-formats/html-themes-more.html">required by Quarto</a>) – you’ll write all your Sass variables underneath this:</p></li>
+<li><p><strong>Create a <code>styles.scss</code> file</strong> in your repo’s root directory (you can name it however you’d like).</p></li>
+<li><p><strong>Add the <code>/*-- scss:defaults --*/</code> region decorator to the top of <code>styles.scss</code></strong> (<a href="https://quarto.org/docs/output-formats/html-themes-more.html">required by Quarto</a>){target=“_blank”} – you’ll write all your Sass variables underneath this:</p></li>
 </ol>
 <div class="cell">
 <div class="code-with-filename">
@@ -1356,7 +1356,7 @@ Repeat steps 1-3 to add a new blog post
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<strong>Comment out / remove <code>css: styles.css</code> from <code>_quarto.yml</code></strong>
+Comment out / remove <code>css: styles.css</code> from <code>_quarto.yml</code>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1378,9 +1378,10 @@ Repeat steps 1-3 to add a new blog post
 <pre><strong>styles.scss</strong></pre>
 </div>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode sass code-with-copy"><code class="sourceCode sass"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Colors</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="va">$baby-blue</span>: <span class="cn">#E3F1F2</span>;</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="va">$dark-blue</span>: <span class="cn">#252D5C</span>;</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="va">$orange</span>: <span class="cn">#F26C25</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="va">$light-purple</span>: <span class="cn">#E7D1FF</span>;</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="va">$dark-purple</span>: <span class="cn">#27004D</span>;</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="va">$pink</span>: <span class="cn">#ff5b92</span>;</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="va">$gray</span>: <span class="cn">#3B3B3B</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <style type="text/css">
 
@@ -1392,7 +1393,7 @@ Repeat steps 1-3 to add a new blog post
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<strong>Use <code>//</code> for single line comments in <code>.scss</code> files</strong>
+Use <code>//</code> for single line comments in <code>.scss</code> files
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1410,29 +1411,38 @@ Repeat steps 1-3 to add a new blog post
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode sass code-with-copy"><code class="sourceCode sass"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">/*-- scss:defaults --*/</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co">// Colors</span></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="va">$baby-blue</span>: <span class="cn">#E3F1F2</span>;</span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="va">$dark-blue</span>: <span class="cn">#252D5C</span>;</span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="va">$orange</span>: <span class="cn">#F26C25</span>;</span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="co">// Sass vars</span></span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="va">$body-bg</span>: <span class="va">$baby-blue</span>;</span>
-<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a><span class="va">$body-color</span>: <span class="va">$dark-blue</span>; </span>
-<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a><span class="va">$link-color</span>: <span class="va">$orange</span>; </span>
-<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a><span class="va">$footer-bg</span>: <span class="va">$dark-blue</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="va">$light-purple</span>: <span class="cn">#E7D1FF</span>;</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="va">$dark-purple</span>: <span class="cn">#27004D</span>;</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="va">$pink</span>: <span class="cn">#ff5b92</span>;</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="va">$gray</span>: <span class="cn">#3B3B3B</span>;</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="co">// Sass vars</span></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a><span class="va">$navbar-bg</span>: <span class="va">$dark-purple</span>; </span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a><span class="va">$navbar-fg</span>: <span class="va">$light-purple</span>; </span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a><span class="va">$navbar-hl</span>: <span class="va">$pink</span>;</span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a><span class="va">$body-bg</span>: <span class="va">$light-purple</span>;</span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a><span class="va">$body-color</span>: <span class="va">$gray</span>; </span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a><span class="va">$link-color</span>: <span class="va">$pink</span>; </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <style type="text/css">
 
 </style>
 </div>
-<p>[SCREENSHOT HERE]</p>
-<div class="center-text gray-text">
-<p><em>Your newly styled site should look similar to this (be sure to run <code>quarto preview</code> in the Terminal, if it’s not already running).</em></p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/sass-vars-colors.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>Your newly styled site should look similar to this (be sure to run <code>quarto preview</code> in the Terminal, if it’s not already running).</figcaption>
+</figure>
+</div>
+</div>
 </div>
 </section>
 <section id="update-website-fonts" class="level3">
 <h3 class="anchored" data-anchor-id="update-website-fonts">Update website fonts</h3>
 <ol type="1">
-<li><strong>Find a Google font family</strong> by browsing options at <a href="https://fonts.google.com/" class="uri">https://fonts.google.com/</a>. There are <em>so</em> many options – click on the <strong>Filter</strong> button in the top left corner of the page to help narrow your choices. For this exercise, we’ll go with <a href="https://fonts.google.com/specimen/Nunito?query=nunito">Nunito</a> (my personal favorite).</li>
+<li><strong>Find a Google font family</strong> by browsing options at <a href="https://fonts.google.com/" target="_blank">https://fonts.google.com/</a>. There are <em>so</em> many options – click on the <strong>Filter</strong> button in the top left corner of the page to help narrow your choices. For this exercise, we’ll go with <a href="https://fonts.google.com/specimen/Elms+Sans" target="_blank">Elm Sans</a>.</li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1440,17 +1450,26 @@ Repeat steps 1-3 to add a new blog post
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<strong>If you want to bold or <em>italicize</em> text, you need to select a font family that has those styles</strong>
+If you want to bold or <em>italicize</em> text, you need to select a font family that has those styles
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Not all font families come in every style. For example, <a href="https://fonts.google.com/specimen/Nunito?query=nunito">Nunito</a> comes in a variety of weights (i.e.&nbsp;levels of boldness) and italic, while <a href="https://fonts.google.com/specimen/Sen?query=sen">Sen</a> comes in a variety of weights, but <em>not</em> italic. This means that if you import and use Sen, you will not be able to italicize text.</p>
+<p>Not all font families come in every style. For example, <a href="https://fonts.google.com/specimen/Elms+Sans" target="_blank">Elm Sans</a> comes in a variety of weights (i.e.&nbsp;levels of boldness) and italic, while <a href="https://fonts.google.com/specimen/Sen?query=sen">Sen</a> comes in a variety of weights, but <em>not</em> italic. This means that if you import and use Sen, you will not be able to italicize text.</p>
 </div>
 </div>
 <ol start="2" type="1">
 <li><strong>Select a Google font family(ies)</strong> by clicking the blue <strong>Get Font</strong> button in the top right corner of the page, which adds your font family to your “bag.” You can add as many font families to your bag as you’d like to import, though we’ll stick with just one (Nunito) for this exercise. Click <strong>Get embed code</strong>, then choose the <strong><span class="citation" data-cites="import">@import</span></strong> radio button (beneath the <strong>Web</strong> menu option), which will provide your import code chunk. Copy everything between the <code>&lt;style&gt; &lt;/style&gt;</code> tags (starting with <code>@import</code> and ending with <code>;</code>) to your clipboard.</li>
 </ol>
-<p>[SCREENSHOT HERE]</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/embed-code.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>After adding Elm Sans to my ‘bag’ (by clicking the ‘Get Font’ button), we can ‘Get Embed Code’ to copy the import URL to our stylesheet</figcaption>
+</figure>
+</div>
+</div>
+</div>
 <ol start="3" type="1">
 <li><strong>Import your Google font</strong> by pasting the import code into <code>styles.scss</code> (I always place this at the top of my stylesheet, beneath <code>/*-- scss:defaults --*/</code>):</li>
 </ol>
@@ -1462,21 +1481,24 @@ Repeat steps 1-3 to add a new blog post
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode sass code-with-copy"><code class="sourceCode sass"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co">/*-- scss:defaults --*/</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co">// Import Google fonts</span></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="im">@import</span> <span class="fu">url(</span><span class="st">'https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&amp;display=swap'</span><span class="fu">)</span>;</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="im">@import</span> <span class="fu">url(</span><span class="st">'https://fonts.googleapis.com/css2?family=Elms+Sans:ital,wght@0,100..900;1,100..900&amp;display=swap'</span><span class="fu">)</span>;</span>
 <span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="co">// Colors</span></span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="va">$baby-blue</span>: <span class="cn">#E3F1F2</span>;</span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="va">$dark-blue</span>: <span class="cn">#252D5C</span>;</span>
-<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="va">$orange</span>: <span class="cn">#F26C25</span>;</span>
-<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a><span class="co">// Sass vars</span></span>
-<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a><span class="va">$body-bg</span>: <span class="va">$baby-blue</span>;</span>
-<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a><span class="va">$body-color</span>: <span class="va">$dark-blue</span>; </span>
-<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a><span class="va">$link-color</span>: <span class="va">$orange</span>; </span>
-<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a><span class="va">$footer-bg</span>: <span class="va">$dark-blue</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="va">$light-purple</span>: <span class="cn">#E7D1FF</span>;</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="va">$dark-purple</span>: <span class="cn">#27004D</span>;</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="va">$pink</span>: <span class="cn">#ff5b92</span>;</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a><span class="va">$gray</span>: <span class="cn">#3B3B3B</span>;</span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a><span class="co">// Sass vars</span></span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a><span class="va">$navbar-bg</span>: <span class="va">$dark-purple</span>; </span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a><span class="va">$navbar-fg</span>: <span class="va">$light-purple</span>; </span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a><span class="va">$navbar-hl</span>: <span class="va">$pink</span>;</span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a><span class="va">$body-bg</span>: <span class="va">$light-purple</span>;</span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a><span class="va">$body-color</span>: <span class="va">$gray</span>; </span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a><span class="va">$link-color</span>: <span class="va">$pink</span>; </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <style type="text/css">
-@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap")
+@import url("https://fonts.googleapis.com/css2?family=Elms+Sans:ital,wght@0,100..900;1,100..900&display=swap")
 </style>
 </div>
 <ol start="4" type="1">
@@ -1494,7 +1516,7 @@ Repeat steps 1-3 to add a new blog post
 <span id="annotated-cell-20-9"><a href="#annotated-cell-20-9" aria-hidden="true" tabindex="-1"></a>    theme<span class="sc">:</span> styles.scss</span>
 <span id="annotated-cell-20-10"><a href="#annotated-cell-20-10" aria-hidden="true" tabindex="-1"></a>    toc<span class="sc">:</span> false</span>
 <span id="annotated-cell-20-11"><a href="#annotated-cell-20-11" aria-hidden="true" tabindex="-1"></a>    page<span class="sc">-</span>layout<span class="sc">:</span> full</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-20" data-target-annotation="1" onclick="event.preventDefault();" href="">1</a><span id="annotated-cell-20-12" class="code-annotation-target"><a href="#annotated-cell-20-12" aria-hidden="true" tabindex="-1"></a>    mainfont<span class="sc">:</span> Nunito</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-20" data-target-annotation="1" onclick="event.preventDefault();" href="">1</a><span id="annotated-cell-20-12" class="code-annotation-target"><a href="#annotated-cell-20-12" aria-hidden="true" tabindex="-1"></a>    mainfont<span class="sc">:</span> Elm Sans</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-annotation">
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-20" data-target-annotation="1">1</dt>
@@ -1504,9 +1526,15 @@ Repeat steps 1-3 to add a new blog post
 </dl>
 </div>
 </div>
-<p>[SCREENSHOT HERE]</p>
-<div class="center-text gray-text">
-<p><em>Our updated website, with Nunito applied.</em></p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/updated-font.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>Our updated website, with Elm Sans applied.</figcaption>
+</figure>
+</div>
+</div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1514,24 +1542,11 @@ Repeat steps 1-3 to add a new blog post
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<strong>You can totally import and use more than one Google font!</strong>
+You can totally import and use more than one Google font!
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>But this requires a bit more Sass <em>and</em> CSS. While we won’t get into that here, check out <a href="https://ucsb-meds.github.io/customizing-quarto-websites/#/title-slide">these workshop materials</a> and some “in the wild” examples (e.g.&nbsp;like the stylesheet for <a href="https://github.com/samanthacsik/OHI-quarto-websites/blob/main/OHI-styles.scss">this very instructional document</a> <i class="fa-solid fa-face-smile-wink" title="a winking face" aria-label="face-smile-wink"></i> ).</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<strong>Don’t forget to <em>Render Website</em> and push your files back to GitHub, when finished!</strong>
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>GitHub Pages will then rebuild and redeploy your site at your URL.</p>
+<p>But this requires a bit more Sass <em>and</em> CSS. While we won’t get into that here, check out <a href="https://ucsb-meds.github.io/customizing-quarto-websites/#/title-slide" target="_blank">these workshop materials</a> and some “in the wild” examples (e.g.&nbsp;like the stylesheet for <a href="https://samanthacsik.github.io/RLadiesSB-quarto-websites/">this very instructional document</a> <i class="fa-solid fa-face-smile-wink" title="a winking face" aria-label="face-smile-wink"></i> ).</p>
 </div>
 </div>
 </section>
@@ -1545,7 +1560,7 @@ Repeat steps 1-3 to add a new blog post
 <li><p><strong>Voila! Keep an eye on the GitHub Actions tab</strong> to see when your redeployed website is ready to view.</p></li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1554,7 +1569,7 @@ Working on branches is recommended!
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-25" class="callout-25-contents callout-collapse collapse">
+<div id="callout-24" class="callout-24-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Despite not practicing it here today, I almost always work on a branch when making changes to my website – this way I can safely test changes before deploying them to my live site. To create a branch:</p>
 <ol type="1">

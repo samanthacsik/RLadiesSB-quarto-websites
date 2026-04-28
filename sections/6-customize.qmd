@@ -14,9 +14,9 @@ We've come a long way, but our website could still use a bit more *pizazz* with 
 
 ### Create and apply a `.scss` stylesheet
 
-1. **Create a `styles.scss` file** in your repo's root directory (you can name it however you'd like), using the command `touch styles.scss` in the Terminal, or by **Blank File** > **Text File** > typing `styles.scss` from the RStudio Files pane.
+1. **Create a `styles.scss` file** in your repo's root directory (you can name it however you'd like).
 
-2. **Add the `/*-- scss:defaults --*/` region decorator to the top of `styles.scss`** ([required by Quarto](https://quarto.org/docs/output-formats/html-themes-more.html)) – you’ll write all your Sass variables underneath this:
+2. **Add the `/*-- scss:defaults --*/` region decorator to the top of `styles.scss`** ([required by Quarto](https://quarto.org/docs/output-formats/html-themes-more.html)){target="_blank"} – you’ll write all your Sass variables underneath this:
 
 ```{sass filename="styles.scss"}
 /*-- scss:defaults --*/
@@ -42,7 +42,7 @@ format:
 1. Apply your `styles.scss` stylesheet using the `theme` option
 
 ::: {.callout-note collapse="true"}
-## **Comment out / remove `css: styles.css` from `_quarto.yml`**
+## Comment out / remove `css: styles.css` from `_quarto.yml`
 
 This tutorial doesn't cover writing CSS, though you *can* (and should) write any CSS in your `.scss` file (rather than writing it in a separate `.css` file). I recommend removing `styles.css` from `_quarto.yml`. You can also delete `styles.css` from your repo (you can always create a new one if you decide you want / need a `.css` file in the future).
 :::
@@ -53,13 +53,14 @@ This tutorial doesn't cover writing CSS, though you *can* (and should) write any
 
 ```{sass filename="styles.scss"}
 // Colors
-$baby-blue: #E3F1F2;
-$dark-blue: #252D5C;
-$orange: #F26C25;
+$light-purple: #E7D1FF;
+$dark-purple: #27004D;
+$pink: #ff5b92;
+$gray: #3B3B3B;
 ```
 
 ::: {.callout-tip}
-## **Use `//` for single line comments in `.scss` files**
+## Use `//` for single line comments in `.scss` files
 
 You may also create multi-line comments, which start with `/*` and end at the next `*/`.
 :::
@@ -70,51 +71,48 @@ You may also create multi-line comments, which start with `/*` and end at the ne
 /*-- scss:defaults --*/
 
 // Colors
-$baby-blue: #E3F1F2;
-$dark-blue: #252D5C;
-$orange: #F26C25;
+$light-purple: #E7D1FF;
+$dark-purple: #27004D;
+$pink: #ff5b92;
+$gray: #3B3B3B;
 
 // Sass vars
-$body-bg: $baby-blue;
-$body-color: $dark-blue; 
-$link-color: $orange; 
-$footer-bg: $dark-blue;
+$navbar-bg: $dark-purple; 
+$navbar-fg: $light-purple; 
+$navbar-hl: $pink;
+$body-bg: $light-purple;
+$body-color: $gray; 
+$link-color: $pink; 
 ```
-
-[SCREENSHOT HERE]
 
 ```{r}
 #| eval: true
 #| echo: false
 #| out-width: "100%"
 #| fig-align: "center"
-# knitr::include_graphics("media/sass-vars-colors.png")
+#| fig-cap: "Your newly styled site should look similar to this (be sure to run `quarto preview` in the Terminal, if it's not already running)."
+knitr::include_graphics(here::here("images", "sass-vars-colors.png"))
 ```
-
-::: {.center-text .gray-text}
-*Your newly styled site should look similar to this (be sure to run `quarto preview` in the Terminal, if it's not already running).*
-:::
 
 ### Update website fonts
 
-1. **Find a Google font family** by browsing options at <https://fonts.google.com/>. There are *so* many options -- click on the **Filter** button in the top left corner of the page to help narrow your choices. For this exercise, we'll go with [Nunito](https://fonts.google.com/specimen/Nunito?query=nunito) (my personal favorite).
+1. **Find a Google font family** by browsing options at [https://fonts.google.com/](https://fonts.google.com/){target="_blank"}. There are *so* many options -- click on the **Filter** button in the top left corner of the page to help narrow your choices. For this exercise, we'll go with [Elm Sans](https://fonts.google.com/specimen/Elms+Sans){target="_blank"}.
 
 ::: {.callout-tip}
-## **If you want to bold or *italicize* text, you need to select a font family that has those styles**
+## If you want to bold or *italicize* text, you need to select a font family that has those styles
 
-Not all font families come in every style. For example, [Nunito](https://fonts.google.com/specimen/Nunito?query=nunito) comes in a variety of weights (i.e. levels of boldness) and italic, while [Sen](https://fonts.google.com/specimen/Sen?query=sen) comes in a variety of weights, but *not* italic. This means that if you import and use Sen, you will not be able to italicize text.
+Not all font families come in every style. For example, [Elm Sans](https://fonts.google.com/specimen/Elms+Sans){target="_blank"} comes in a variety of weights (i.e. levels of boldness) and italic, while [Sen](https://fonts.google.com/specimen/Sen?query=sen) comes in a variety of weights, but *not* italic. This means that if you import and use Sen, you will not be able to italicize text.
 :::
 
 2. **Select a Google font family(ies)** by clicking the blue **Get Font** button in the top right corner of the page, which adds your font family to your "bag." You can add as many font families to your bag as you'd like to import, though we'll stick with just one (Nunito) for this exercise. Click **Get embed code**, then choose the **@import** radio button (beneath the **Web** menu option), which will provide your import code chunk. Copy everything between the `<style> </style>` tags (starting with `@import` and ending with `;`) to your clipboard.
 
-[SCREENSHOT HERE]
-
 ```{r}
-#| eval: false
+#| eval: true
 #| echo: false
 #| fig-align: "center"
 #| out-width: "100%"
-# knitr::include_graphics("media/select-font.gif")
+#| fig-cap: "After adding Elm Sans to my 'bag' (by clicking the 'Get Font' button), we can 'Get Embed Code' to copy the import URL to our stylesheet"
+knitr::include_graphics(here::here("images", "embed-code.png"))
 ```
 
 3. **Import your Google font** by pasting the import code into `styles.scss` (I always place this at the top of my stylesheet, beneath `/*-- scss:defaults --*/`):
@@ -123,18 +121,21 @@ Not all font families come in every style. For example, [Nunito](https://fonts.g
 /*-- scss:defaults --*/
 
 // Import Google fonts
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Elms+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
 // Colors
-$baby-blue: #E3F1F2;
-$dark-blue: #252D5C;
-$orange: #F26C25;
+$light-purple: #E7D1FF;
+$dark-purple: #27004D;
+$pink: #ff5b92;
+$gray: #3B3B3B;
 
 // Sass vars
-$body-bg: $baby-blue;
-$body-color: $dark-blue; 
-$link-color: $orange; 
-$footer-bg: $dark-blue;
+$navbar-bg: $dark-purple; 
+$navbar-fg: $light-purple; 
+$navbar-hl: $pink;
+$body-bg: $light-purple;
+$body-color: $gray; 
+$link-color: $pink; 
 ```
 
 4. **Apply your font using the `mainfont` option in `_quarto.yml`** -- this is the easiest way to use a single font across your entire website:
@@ -154,32 +155,21 @@ format:
     theme: styles.scss
     toc: false
     page-layout: full
-    mainfont: Nunito # <1>
+    mainfont: Elm Sans # <1>
 ```
 1. Be sure to spell the font family name exactly as it appears on Google Fonts
 
-[SCREENSHOT HERE]
-
 ```{r}
-#| eval: false
+#| eval: true
 #| echo: false
 #| fig-align: "center"
 #| out-width: "100%"
-# knitr::include_graphics("media/updated-font.png")
+#| fig-cap: "Our updated website, with Elm Sans applied."
+knitr::include_graphics(here::here("images", "updated-font.png"))
 ```
 
-::: {.center-text .gray-text}
-*Our updated website, with Nunito applied.*
-:::
-
 ::: {.callout-tip}
-## **You can totally import and use more than one Google font!**
+## You can totally import and use more than one Google font!
 
-But this requires a bit more Sass *and* CSS. While we won't get into that here, check out [these workshop materials](https://ucsb-meds.github.io/customizing-quarto-websites/#/title-slide) and some "in the wild" examples (e.g. like the stylesheet for [this very instructional document](https://github.com/samanthacsik/OHI-quarto-websites/blob/main/OHI-styles.scss) {{< fa face-smile-wink title="a winking face" >}} ).
-:::
-
-::: {.callout-important}
-## **Don't forget to *Render Website* and push your files back to GitHub, when finished!**
-
-GitHub Pages will then rebuild and redeploy your site at your URL.
+But this requires a bit more Sass *and* CSS. While we won't get into that here, check out [these workshop materials](https://ucsb-meds.github.io/customizing-quarto-websites/#/title-slide){target="_blank"} and some "in the wild" examples (e.g. like the stylesheet for [this very instructional document](https://samanthacsik.github.io/RLadiesSB-quarto-websites/) {{< fa face-smile-wink title="a winking face" >}} ).
 :::
