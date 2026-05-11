@@ -1,6 +1,6 @@
 ---
 title: "Creating your personal website using Quarto"
-subtitle: "R-Ladies Santa Barbara Meetup"
+subtitle: "RLadies+ Santa Barbara"
 author: 
   - name: Sam Shanny-Csik
     url: https://samanthacsik.github.io/
@@ -8,8 +8,10 @@ author:
 date: May 13, 2026
 format: 
   html:
+    #glamour-html: default
     theme: RLadies-styles.scss
     mainfont: "Poppins"
+    #backgroundcolor: "#ededf4"
     toc: true
     toc-location: left
     toc-depth: 3

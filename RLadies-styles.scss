@@ -16,21 +16,22 @@ $bastille-black: #2f2f30;
 $lavendar-white: #ededf4;
 
 // quarto sass variables
+$backgroundcolor: $lavendar-white; 
 $body-color: $bastille-black; 
-$link-color: $dodger-blue;
+$link-color: $blue-violet; //$dodger-blue;
 $code-color: $brilliant-rose;
 
 /*-- scss:rules --*/
 
 .title {
-  color: $blue-violet; 
+  color: $bastille-black; //$blue-violet; 
   font-family: $font-family-sans-serif;
   font-weight: 500;
   font-style: normal;
 }
 
 h1, h2, h3, h4 {
-  color: $blue-violet;
+  color: $bastille-black; //$blue-violet;
   font-family: $font-family-sans-serif;
   font-weight: 600;
   font-style: normal;
@@ -44,7 +45,7 @@ p {
 
 // line beneath h2
 h2 {
-  border-bottom: 3px solid $blue-violet;
+  border-bottom: 3px solid $bastille-black;//$blue-violet;
   padding-bottom: 0.5rem;
 }
 
