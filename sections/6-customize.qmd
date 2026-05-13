@@ -71,12 +71,12 @@ knitr::include_graphics(here::here("images", "sass-vars-colors.png"))
 
 ### Update website fonts
 
-1. **Find a Google font family** by browsing options at [https://fonts.google.com/](https://fonts.google.com/){target="_blank"}. There are *so* many options -- click on the **Filter** button in the top left corner of the page to help narrow your choices. For this exercise, we'll go with [Elm Sans](https://fonts.google.com/specimen/Elms+Sans){target="_blank"}.
+1. **Find a Google font family** by browsing options at [https://fonts.google.com/](https://fonts.google.com/){target="_blank"}. There are *so* many options -- click on the **Filter** button in the top left corner of the page to help narrow your choices. For this exercise, we'll go with [Elms Sans](https://fonts.google.com/specimen/Elms+Sans){target="_blank"}.
 
 ::: {.callout-tip}
 ## If you want to bold or *italicize* text, you need to select a font family that has those styles
 
-Not all font families come in every style. For example, [Elm Sans](https://fonts.google.com/specimen/Elms+Sans){target="_blank"} comes in a variety of weights (i.e. levels of boldness) and italic, while [Sen](https://fonts.google.com/specimen/Sen?query=sen) comes in a variety of weights, but *not* italic. This means that if you import and use Sen, you will not be able to italicize text.
+Not all font families come in every style. For example, [Elms Sans](https://fonts.google.com/specimen/Elms+Sans){target="_blank"} comes in a variety of weights (i.e. levels of boldness) and italic, while [Sen](https://fonts.google.com/specimen/Sen?query=sen) comes in a variety of weights, but *not* italic. This means that if you import and use Sen, you will not be able to italicize text.
 :::
 
 2. **Select a Google font family(ies)** by clicking the blue **Get Font** button in the top right corner of the page, which adds your font family to your "bag." You can add as many font families to your bag as you'd like to import, though we'll stick with just one (Nunito) for this exercise. Click **Get embed code**, then choose the **@import** radio button (beneath the **Web** menu option), which will provide your import code chunk. Copy everything between the `<style> </style>` tags (starting with `@import` and ending with `;`) to your clipboard.
@@ -86,7 +86,7 @@ Not all font families come in every style. For example, [Elm Sans](https://fonts
 #| echo: false
 #| fig-align: "center"
 #| out-width: "100%"
-#| fig-cap: "After adding Elm Sans to my 'bag' (by clicking the 'Get Font' button), we can 'Get Embed Code' to copy the import URL to our stylesheet"
+#| fig-cap: "After adding Elms Sans to my 'bag' (by clicking the 'Get Font' button), we can 'Get Embed Code' to copy the import URL to our stylesheet"
 knitr::include_graphics(here::here("images", "embed-code.png"))
 ```
 
@@ -130,7 +130,7 @@ format:
     theme: styles.scss
     toc: false
     page-layout: full
-    mainfont: Elm Sans # <1>
+    mainfont: Elms Sans # <1>
 ```
 1. Be sure to spell the font family name exactly as it appears on Google Fonts
 
@@ -139,7 +139,7 @@ format:
 #| echo: false
 #| fig-align: "center"
 #| out-width: "100%"
-#| fig-cap: "Our updated website, with Elm Sans applied."
+#| fig-cap: "Our updated website, with Elms Sans applied."
 knitr::include_graphics(here::here("images", "updated-font.png"))
 ```
 
