@@ -8,9 +8,9 @@ author:
 date: May 13, 2026
 format: 
   html:
-    #glamour-html: default
+    # glamour-html: default
     theme: RLadies-styles.scss
-    mainfont: "Poppins"
+    # mainfont: "Poppins"
     #backgroundcolor: "#ededf4"
     toc: true
     toc-location: left

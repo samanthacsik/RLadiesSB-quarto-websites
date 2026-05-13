@@ -16,7 +16,7 @@ We've come a long way, but our website could still use a bit more *pizazz* with 
 
 1. **Create a `styles.scss` file** in your repo's root directory (you can name it however you'd like).
 
-2. **Add the `/*-- scss:defaults --*/` region decorator to the top of `styles.scss`** ([required by Quarto](https://quarto.org/docs/output-formats/html-themes-more.html)){target="_blank"} – you’ll write all your Sass variables underneath this:
+2. **Add the `/*-- scss:defaults --*/` region decorator to the top of `styles.scss`** ([required by Quarto](https://quarto.org/docs/output-formats/html-themes-more.html){target="_blank"}) – you’ll write all your Sass variables underneath this:
 
 ```{sass filename="styles.scss"}
 /*-- scss:defaults --*/
