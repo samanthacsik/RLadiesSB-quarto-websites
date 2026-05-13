@@ -146,7 +146,7 @@ knitr::include_graphics(here::here("images", "updated-font.png"))
 ::: {.callout-tip}
 ## You can totally import and use more than one Google font!
 
-But this requires a bit more Sass *and* CSS. While we won't get into that here, check out [these workshop materials](https://ucsb-meds.github.io/customizing-quarto-websites/#/title-slide){target="_blank"} and some "in the wild" examples (e.g. like the stylesheet for [this very instructional document](https://samanthacsik.github.io/RLadiesSB-quarto-websites/) {{< fa face-smile-wink title="a winking face" >}} ).
+But this requires a bit more Sass *and* CSS. While we won't get into that here, check out [these workshop materials](https://ucsb-meds.github.io/customizing-quarto-websites/#/title-slide){target="_blank"} for guidance.
 :::
 
 ### Apply your stylesheet 
