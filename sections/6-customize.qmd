@@ -12,7 +12,7 @@ format:
 
 We've come a long way, but our website could still use a bit more *pizazz* with a theme that reflects our own personality and style. There are a number of ways to update a Quarto website's theme (e.g. colors, fonts). The (arguably) fastest and easiest way to get started is by defining some [Sass](https://sass-lang.com/){target="_blank"} variables in a `.scss` file (stylesheet), then linking to that stylesheet in your `_quarto.yml` metadata. The steps below offer a "quick start guide approach," though I recommend checking out [these workshop materials](https://ucsb-meds.github.io/customizing-quarto-websites/#/title-slide){target="_blank"} on customizing Quarto websites using Sass & CSS for a much more thorough / deeper dive.
 
-### Create a `.scss` stylesheet
+### Create & apply a `.scss` stylesheet
 
 1. **Create a `styles.scss` file** in your repo's root directory (you can name it however you'd like).
 
@@ -21,6 +21,37 @@ We've come a long way, but our website could still use a bit more *pizazz* with 
 ```{sass filename="styles.scss"}
 /*-- scss:defaults --*/
 ```
+
+3. **Apply your `styles.scss` stylesheet to your website** using the `theme` option in `_quarto.yml`:
+
+```{r filename="_quarto.yml"}
+#| eval: false
+#| echo: true
+project:
+   # ~ additional YAML omitted for brevity ~
+
+website:
+  # ~ additional YAML omitted for brevity ~
+  
+format:
+  html:
+    theme: styles.scss # <1>
+    toc: false
+    page-layout: full
+```
+1. Apply your `styles.scss` stylesheet using the `theme` option
+
+::: {.callout-note collapse="true"}
+## Comment out / remove `css: styles.css` from `_quarto.yml`
+
+This tutorial doesn't cover writing CSS, though you *can* (and should) write any CSS in your `.scss` file (rather than writing it in a separate `.css` file). I recommend removing `styles.css` from `_quarto.yml`. You can also delete `styles.css` from your repo (you can always create a new one if you decide you want / need a `.css` file in the future).
+:::
+
+::: {.callout-important}
+## NOTE: You may see a preview error once you add your stylesheet to `_quarto.yml`
+
+You may get an error both in your Terminal and on your browser preview once you apply your empty `styles.scss` stylesheet as your website theme in `_quarto.yml`. I recommend stopping your preview, following the next steps to add some color variables and define a few Quarto Sass variables, then spinning up your preview again.
+:::
 
 ### Update website colors 
 
@@ -149,29 +180,4 @@ knitr::include_graphics(here::here("images", "updated-font.png"))
 But this requires a bit more Sass *and* CSS. While we won't get into that here, check out [these workshop materials](https://ucsb-meds.github.io/customizing-quarto-websites/#/title-slide){target="_blank"} for guidance.
 :::
 
-### Apply your stylesheet 
 
-1. **Apply your `styles.scss` stylesheet to your website** using the `theme` option in `_quarto.yml`:
-
-```{r filename="_quarto.yml"}
-#| eval: false
-#| echo: true
-project:
-   # ~ additional YAML omitted for brevity ~
-
-website:
-  # ~ additional YAML omitted for brevity ~
-  
-format:
-  html:
-    theme: styles.scss # <1>
-    toc: false
-    page-layout: full
-```
-1. Apply your `styles.scss` stylesheet using the `theme` option
-
-::: {.callout-note collapse="true"}
-## Comment out / remove `css: styles.css` from `_quarto.yml`
-
-This tutorial doesn't cover writing CSS, though you *can* (and should) write any CSS in your `.scss` file (rather than writing it in a separate `.css` file). I recommend removing `styles.css` from `_quarto.yml`. You can also delete `styles.css` from your repo (you can always create a new one if you decide you want / need a `.css` file in the future).
-:::

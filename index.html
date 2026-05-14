@@ -101,10 +101,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#customize" id="toc-customize" class="nav-link" data-scroll-target="#customize"><i class="fa-solid fa-palette" title="paint palette" aria-label="palette"></i> Update fonts &amp; colors using Sass</a>
   <ul class="collapse">
-  <li><a href="#create-a-.scss-stylesheet" id="toc-create-a-.scss-stylesheet" class="nav-link" data-scroll-target="#create-a-.scss-stylesheet">Create a <code>.scss</code> stylesheet</a></li>
+  <li><a href="#create-apply-a-.scss-stylesheet" id="toc-create-apply-a-.scss-stylesheet" class="nav-link" data-scroll-target="#create-apply-a-.scss-stylesheet">Create &amp; apply a <code>.scss</code> stylesheet</a></li>
   <li><a href="#update-website-colors" id="toc-update-website-colors" class="nav-link" data-scroll-target="#update-website-colors">Update website colors</a></li>
   <li><a href="#update-website-fonts" id="toc-update-website-fonts" class="nav-link" data-scroll-target="#update-website-fonts">Update website fonts</a></li>
-  <li><a href="#apply-your-stylesheet" id="toc-apply-your-stylesheet" class="nav-link" data-scroll-target="#apply-your-stylesheet">Apply your stylesheet</a></li>
   </ul></li>
   <li><a href="#redeploy" id="toc-redeploy" class="nav-link" data-scroll-target="#redeploy"><i class="fa-solid fa-code-merge" title="merging code into main" aria-label="code-merge"></i> Redeploy your website changes</a></li>
   </ul>
@@ -1298,8 +1297,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="customize" class="level2">
 <h2 class="anchored" data-anchor-id="customize"><i class="fa-solid fa-palette" title="paint palette" aria-label="palette"></i> Update fonts &amp; colors using Sass</h2>
 <p>We’ve come a long way, but our website could still use a bit more <em>pizazz</em> with a theme that reflects our own personality and style. There are a number of ways to update a Quarto website’s theme (e.g.&nbsp;colors, fonts). The (arguably) fastest and easiest way to get started is by defining some <a href="https://sass-lang.com/" target="_blank">Sass</a> variables in a <code>.scss</code> file (stylesheet), then linking to that stylesheet in your <code>_quarto.yml</code> metadata. The steps below offer a “quick start guide approach,” though I recommend checking out <a href="https://ucsb-meds.github.io/customizing-quarto-websites/#/title-slide" target="_blank">these workshop materials</a> on customizing Quarto websites using Sass &amp; CSS for a much more thorough / deeper dive.</p>
-<section id="create-a-.scss-stylesheet" class="level3">
-<h3 class="anchored" data-anchor-id="create-a-.scss-stylesheet">Create a <code>.scss</code> stylesheet</h3>
+<section id="create-apply-a-.scss-stylesheet" class="level3">
+<h3 class="anchored" data-anchor-id="create-apply-a-.scss-stylesheet">Create &amp; apply a <code>.scss</code> stylesheet</h3>
 <ol type="1">
 <li><p><strong>Create a <code>styles.scss</code> file</strong> in your repo’s root directory (you can name it however you’d like).</p></li>
 <li><p><strong>Add the <code>/*-- scss:defaults --*/</code> region decorator to the top of <code>styles.scss</code></strong> (<a href="https://quarto.org/docs/output-formats/html-themes-more.html" target="_blank">required by Quarto</a>) – you’ll write all your Sass variables underneath this:</p></li>
@@ -1314,6 +1313,64 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <style type="text/css">
 
 </style>
+</div>
+<ol start="3" type="1">
+<li><strong>Apply your <code>styles.scss</code> stylesheet to your website</strong> using the <code>theme</code> option in <code>_quarto.yml</code>:</li>
+</ol>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>_quarto.yml</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="annotated-cell-16"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-16-1"><a href="#annotated-cell-16-1" aria-hidden="true" tabindex="-1"></a>project<span class="sc">:</span></span>
+<span id="annotated-cell-16-2"><a href="#annotated-cell-16-2" aria-hidden="true" tabindex="-1"></a>   <span class="co"># ~ additional YAML omitted for brevity ~</span></span>
+<span id="annotated-cell-16-3"><a href="#annotated-cell-16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-16-4"><a href="#annotated-cell-16-4" aria-hidden="true" tabindex="-1"></a>website<span class="sc">:</span></span>
+<span id="annotated-cell-16-5"><a href="#annotated-cell-16-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># ~ additional YAML omitted for brevity ~</span></span>
+<span id="annotated-cell-16-6"><a href="#annotated-cell-16-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="annotated-cell-16-7"><a href="#annotated-cell-16-7" aria-hidden="true" tabindex="-1"></a>format<span class="sc">:</span></span>
+<span id="annotated-cell-16-8"><a href="#annotated-cell-16-8" aria-hidden="true" tabindex="-1"></a>  html<span class="sc">:</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-16" data-target-annotation="1" onclick="event.preventDefault();" href="">1</a><span id="annotated-cell-16-9" class="code-annotation-target"><a href="#annotated-cell-16-9" aria-hidden="true" tabindex="-1"></a>    theme<span class="sc">:</span> styles.scss</span>
+<span id="annotated-cell-16-10"><a href="#annotated-cell-16-10" aria-hidden="true" tabindex="-1"></a>    toc<span class="sc">:</span> false</span>
+<span id="annotated-cell-16-11"><a href="#annotated-cell-16-11" aria-hidden="true" tabindex="-1"></a>    page<span class="sc">-</span>layout<span class="sc">:</span> full</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-16" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-16" data-code-lines="9" data-code-annotation="1">Apply your <code>styles.scss</code> stylesheet using the <code>theme</code> option</span>
+</dd>
+</dl>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Comment out / remove <code>css: styles.css</code> from <code>_quarto.yml</code>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-20" class="callout-20-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>This tutorial doesn’t cover writing CSS, though you <em>can</em> (and should) write any CSS in your <code>.scss</code> file (rather than writing it in a separate <code>.css</code> file). I recommend removing <code>styles.css</code> from <code>_quarto.yml</code>. You can also delete <code>styles.css</code> from your repo (you can always create a new one if you decide you want / need a <code>.css</code> file in the future).</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>NOTE: You may see a preview error once you add your stylesheet to <code>_quarto.yml</code>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You may get an error both in your Terminal and on your browser preview once you apply your empty <code>styles.scss</code> stylesheet as your website theme in <code>_quarto.yml</code>. I recommend stopping your preview, following the next steps to add some color variables and define a few Quarto Sass variables, then spin up your preview again.</p>
+</div>
 </div>
 </section>
 <section id="update-website-colors" class="level3">
@@ -1454,23 +1511,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Apply your font using the <code>mainfont</code> option in <code>_quarto.yml</code></strong> – this is the easiest way to use a single font across your entire website:</li>
 </ol>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="annotated-cell-19"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-19-1"><a href="#annotated-cell-19-1" aria-hidden="true" tabindex="-1"></a>project<span class="sc">:</span></span>
-<span id="annotated-cell-19-2"><a href="#annotated-cell-19-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># ~ additional YAML omitted for brevity ~</span></span>
-<span id="annotated-cell-19-3"><a href="#annotated-cell-19-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-19-4"><a href="#annotated-cell-19-4" aria-hidden="true" tabindex="-1"></a>website<span class="sc">:</span></span>
-<span id="annotated-cell-19-5"><a href="#annotated-cell-19-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># ~ additional YAML omitted for brevity ~</span></span>
-<span id="annotated-cell-19-6"><a href="#annotated-cell-19-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-19-7"><a href="#annotated-cell-19-7" aria-hidden="true" tabindex="-1"></a>format<span class="sc">:</span></span>
-<span id="annotated-cell-19-8"><a href="#annotated-cell-19-8" aria-hidden="true" tabindex="-1"></a>  html<span class="sc">:</span></span>
-<span id="annotated-cell-19-9"><a href="#annotated-cell-19-9" aria-hidden="true" tabindex="-1"></a>    theme<span class="sc">:</span> styles.scss</span>
-<span id="annotated-cell-19-10"><a href="#annotated-cell-19-10" aria-hidden="true" tabindex="-1"></a>    toc<span class="sc">:</span> false</span>
-<span id="annotated-cell-19-11"><a href="#annotated-cell-19-11" aria-hidden="true" tabindex="-1"></a>    page<span class="sc">-</span>layout<span class="sc">:</span> full</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-19" data-target-annotation="1" onclick="event.preventDefault();" href="">1</a><span id="annotated-cell-19-12" class="code-annotation-target"><a href="#annotated-cell-19-12" aria-hidden="true" tabindex="-1"></a>    mainfont<span class="sc">:</span> Elms Sans</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="annotated-cell-20"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-20-1"><a href="#annotated-cell-20-1" aria-hidden="true" tabindex="-1"></a>project<span class="sc">:</span></span>
+<span id="annotated-cell-20-2"><a href="#annotated-cell-20-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># ~ additional YAML omitted for brevity ~</span></span>
+<span id="annotated-cell-20-3"><a href="#annotated-cell-20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-20-4"><a href="#annotated-cell-20-4" aria-hidden="true" tabindex="-1"></a>website<span class="sc">:</span></span>
+<span id="annotated-cell-20-5"><a href="#annotated-cell-20-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># ~ additional YAML omitted for brevity ~</span></span>
+<span id="annotated-cell-20-6"><a href="#annotated-cell-20-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-20-7"><a href="#annotated-cell-20-7" aria-hidden="true" tabindex="-1"></a>format<span class="sc">:</span></span>
+<span id="annotated-cell-20-8"><a href="#annotated-cell-20-8" aria-hidden="true" tabindex="-1"></a>  html<span class="sc">:</span></span>
+<span id="annotated-cell-20-9"><a href="#annotated-cell-20-9" aria-hidden="true" tabindex="-1"></a>    theme<span class="sc">:</span> styles.scss</span>
+<span id="annotated-cell-20-10"><a href="#annotated-cell-20-10" aria-hidden="true" tabindex="-1"></a>    toc<span class="sc">:</span> false</span>
+<span id="annotated-cell-20-11"><a href="#annotated-cell-20-11" aria-hidden="true" tabindex="-1"></a>    page<span class="sc">-</span>layout<span class="sc">:</span> full</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-20" data-target-annotation="1" onclick="event.preventDefault();" href="">1</a><span id="annotated-cell-20-12" class="code-annotation-target"><a href="#annotated-cell-20-12" aria-hidden="true" tabindex="-1"></a>    mainfont<span class="sc">:</span> Elms Sans</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-annotation">
 <dl class="code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-19" data-target-annotation="1">1</dt>
+<dt data-target-cell="annotated-cell-20" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-19" data-code-lines="12" data-code-annotation="1">Be sure to spell the font family name exactly as it appears on Google Fonts</span>
+<span data-code-cell="annotated-cell-20" data-code-lines="12" data-code-annotation="1">Be sure to spell the font family name exactly as it appears on Google Fonts</span>
 </dd>
 </dl>
 </div>
@@ -1499,54 +1556,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="apply-your-stylesheet" class="level3">
-<h3 class="anchored" data-anchor-id="apply-your-stylesheet">Apply your stylesheet</h3>
-<ol type="1">
-<li><strong>Apply your <code>styles.scss</code> stylesheet to your website</strong> using the <code>theme</code> option in <code>_quarto.yml</code>:</li>
-</ol>
-<div class="cell">
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>_quarto.yml</strong></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="annotated-cell-20"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-20-1"><a href="#annotated-cell-20-1" aria-hidden="true" tabindex="-1"></a>project<span class="sc">:</span></span>
-<span id="annotated-cell-20-2"><a href="#annotated-cell-20-2" aria-hidden="true" tabindex="-1"></a>   <span class="co"># ~ additional YAML omitted for brevity ~</span></span>
-<span id="annotated-cell-20-3"><a href="#annotated-cell-20-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-20-4"><a href="#annotated-cell-20-4" aria-hidden="true" tabindex="-1"></a>website<span class="sc">:</span></span>
-<span id="annotated-cell-20-5"><a href="#annotated-cell-20-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># ~ additional YAML omitted for brevity ~</span></span>
-<span id="annotated-cell-20-6"><a href="#annotated-cell-20-6" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="annotated-cell-20-7"><a href="#annotated-cell-20-7" aria-hidden="true" tabindex="-1"></a>format<span class="sc">:</span></span>
-<span id="annotated-cell-20-8"><a href="#annotated-cell-20-8" aria-hidden="true" tabindex="-1"></a>  html<span class="sc">:</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-20" data-target-annotation="1" onclick="event.preventDefault();" href="">1</a><span id="annotated-cell-20-9" class="code-annotation-target"><a href="#annotated-cell-20-9" aria-hidden="true" tabindex="-1"></a>    theme<span class="sc">:</span> styles.scss</span>
-<span id="annotated-cell-20-10"><a href="#annotated-cell-20-10" aria-hidden="true" tabindex="-1"></a>    toc<span class="sc">:</span> false</span>
-<span id="annotated-cell-20-11"><a href="#annotated-cell-20-11" aria-hidden="true" tabindex="-1"></a>    page<span class="sc">-</span>layout<span class="sc">:</span> full</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell-annotation">
-<dl class="code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-20" data-target-annotation="1">1</dt>
-<dd>
-<span data-code-cell="annotated-cell-20" data-code-lines="9" data-code-annotation="1">Apply your <code>styles.scss</code> stylesheet using the <code>theme</code> option</span>
-</dd>
-</dl>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Comment out / remove <code>css: styles.css</code> from <code>_quarto.yml</code>
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-23" class="callout-23-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>This tutorial doesn’t cover writing CSS, though you <em>can</em> (and should) write any CSS in your <code>.scss</code> file (rather than writing it in a separate <code>.css</code> file). I recommend removing <code>styles.css</code> from <code>_quarto.yml</code>. You can also delete <code>styles.css</code> from your repo (you can always create a new one if you decide you want / need a <code>.css</code> file in the future).</p>
-</div>
-</div>
-</div>
-</section>
 </section>
 <section id="redeploy" class="level2">
 <h2 class="anchored" data-anchor-id="redeploy"><i class="fa-solid fa-code-merge" title="merging code into main" aria-label="code-merge"></i> Redeploy your website changes</h2>
@@ -1557,7 +1566,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p><strong>Voila! Keep an eye on the GitHub Actions tab</strong> to see when your redeployed website is ready to view.</p></li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1566,7 +1575,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-24" class="callout-24-contents callout-collapse collapse">
+<div id="callout-25" class="callout-25-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Despite not practicing it here today, I almost always work on a branch when making changes to my website – this way I can safely test changes before deploying them to my live site. To create a branch:</p>
 <ol type="1">
